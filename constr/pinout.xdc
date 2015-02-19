@@ -10,13 +10,13 @@
 #set_property PACKAGE_PIN Y3 [get_ports clk100m_en]
 #set_property IOSTANDARD LVCMOS33 [get_ports clk100m_en]
 
-## Clk2 :  50MHz oscillator
-#set_property PACKAGE_PIN C18 [get_ports clk50m]
-#set_property IOSTANDARD LVCMOS33 [get_ports clk50m]
+# Clk2 :  50MHz oscillator
+set_property PACKAGE_PIN C18 [get_ports clk50m]
+set_property IOSTANDARD LVCMOS33 [get_ports clk50m]
 
-## Clk2_en :  Enable 50MHz oscillator output (Active high)
-#set_property PACKAGE_PIN A18 [get_ports clk50m_en]
-#set_property IOSTANDARD LVCMOS33 [get_ports clk50m_en]
+# Clk2_en :  Enable 50MHz oscillator output (Active high)
+set_property PACKAGE_PIN A18 [get_ports clk50m_en]
+set_property IOSTANDARD LVCMOS33 [get_ports clk50m_en]
 
 ######################################################################################
 ## SPI Flash
@@ -45,53 +45,53 @@
 ######################################################################################
 ## User LED and Switch
 
-## Led1 : Red
-#set_property PACKAGE_PIN C14 [get_ports user_led1]
-#set_property IOSTANDARD LVCMOS33 [get_ports user_led1]
+# Led1 : Red
+set_property PACKAGE_PIN C14 [get_ports user_led1]
+set_property IOSTANDARD LVCMOS33 [get_ports user_led1]
 
-## Led2 : Green
-#set_property PACKAGE_PIN C13 [get_ports user_led2]
-#set_property IOSTANDARD LVCMOS33 [get_ports user_led2]
+# Led2 : Green
+set_property PACKAGE_PIN C13 [get_ports user_led2]
+set_property IOSTANDARD LVCMOS33 [get_ports user_led2]
 
-## Led3 : Orange
-#set_property PACKAGE_PIN B13 [get_ports user_led3]
-#set_property IOSTANDARD LVCMOS33 [get_ports user_led3]
+# Led3 : Orange
+set_property PACKAGE_PIN B13 [get_ports user_led3]
+set_property IOSTANDARD LVCMOS33 [get_ports user_led3]
 
-## Led4 : Blue
-#set_property PACKAGE_PIN A13 [get_ports user_led4]
-#set_property IOSTANDARD LVCMOS33 [get_ports user_led4]
+# Led4 : Blue
+set_property PACKAGE_PIN A13 [get_ports user_led4]
+set_property IOSTANDARD LVCMOS33 [get_ports user_led4]
 
-## Led5 : White
-#set_property PACKAGE_PIN A14 [get_ports user_led5]
-#set_property IOSTANDARD LVCMOS33 [get_ports user_led5]
+# Led5 : White
+set_property PACKAGE_PIN A14 [get_ports user_led5]
+set_property IOSTANDARD LVCMOS33 [get_ports user_led5]
 
-## User_sw :
-#set_property PACKAGE_PIN A16 [get_ports user_sw]
-#set_property IOSTANDARD LVCMOS33 [get_ports user_sw]
+# User_sw :
+set_property PACKAGE_PIN A16 [get_ports user_sw]
+set_property IOSTANDARD LVCMOS33 [get_ports user_sw]
 
 ######################################################################################
 ## USB Interface
 ## Connects to the FTDI FT234XD UART Chip
 
-## USB_rxd :  Data from FPGA to UART Chip
-#set_property PACKAGE_PIN A1 [get_ports usb_rxd]
-#set_property IOSTANDARD LVCMOS33 [get_ports usb_rxd]
+# USB_rxd :  Data from FPGA to UART Chip
+set_property PACKAGE_PIN A1 [get_ports usb_rxd]
+set_property IOSTANDARD LVCMOS33 [get_ports usb_rxd]
 
-## USB_txd :  Data from UART Chip to the FPGA
-#set_property PACKAGE_PIN B1 [get_ports usb_txd]
-#set_property IOSTANDARD LVCMOS33 [get_ports usb_txd]
+# USB_txd :  Data from UART Chip to the FPGA
+set_property PACKAGE_PIN B1 [get_ports usb_txd]
+set_property IOSTANDARD LVCMOS33 [get_ports usb_txd]
 
-## n_USB_cts :
-#set_property PACKAGE_PIN C2 [get_ports n_usb_cts]
-#set_property IOSTANDARD LVCMOS33 [get_ports n_usb_cts]
+# n_USB_cts :
+set_property PACKAGE_PIN C2 [get_ports n_usb_cts]
+set_property IOSTANDARD LVCMOS33 [get_ports n_usb_cts]
 
-## n_USB_rts :
-#set_property PACKAGE_PIN B2 [get_ports n_usb_rts]
-#set_property IOSTANDARD LVCMOS33 [get_ports n_usb_rts]
+# n_USB_rts :
+set_property PACKAGE_PIN B2 [get_ports n_usb_rts]
+set_property IOSTANDARD LVCMOS33 [get_ports n_usb_rts]
 
-## n_USB_rst : Reset the USB/UART Chip
-#set_property PACKAGE_PIN D2 [get_ports n_usb_rst]]
-#set_property IOSTANDARD LVCMOS33 [get_ports n_usb_rst]
+# n_USB_rst : Reset the USB/UART Chip
+set_property PACKAGE_PIN D2 [get_ports n_usb_rst]
+set_property IOSTANDARD LVCMOS33 [get_ports n_usb_rst]
 
 ## USB_cbus0 :
 #set_property PACKAGE_PIN D1 [get_ports usb_cbus0]
