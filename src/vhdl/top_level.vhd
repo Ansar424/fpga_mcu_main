@@ -33,10 +33,14 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity top_level is
     Port ( 
+        -- Clock signals
         clk50m : in std_logic;
         clk50m_en : out std_logic;
-        nReset : in std_logic;
         
+        -- Basic IO ports for LEDs and one switch
+        -- The switch is used as MCU reset.
+        -- Led 5 (white) is a blinking led to indicate that the
+        -- system is operational.
         user_led1 : out std_logic;
         user_led2 : out std_logic;
         user_led3 : out std_logic;
@@ -44,11 +48,27 @@ entity top_level is
         user_led5 : out std_logic;
         user_sw : in std_logic;
         
+        -- FT234XD USB->UART interface
         usb_rxd : out std_logic;
         usb_txd : in std_logic;
         n_usb_cts : in std_logic;
         n_usb_rts : out std_logic;
-        n_usb_rst : out std_logic
+        n_usb_rst : out std_logic;
+    
+        -- LSM9DS0 9DOF IMU interface
+        lsm_scl : out std_logic;
+        lsm_sda : out std_logic;
+        lsm_sdo_g : in std_logic;
+        n_lsm_cs_g : out std_logic;
+        lsm_sdo_xm : in std_logic;
+        n_lsm_cs_xm : out std_logic;
+        
+        -- MS5611 Barometer interface
+        bar_clk : out std_logic;
+        bar_ps : out std_logic;
+        bar_sdi : out std_logic;
+        bar_sdo : in std_logic;
+        n_bar_cs : out std_logic
     
     );
 end top_level;
@@ -68,20 +88,8 @@ architecture rtl of top_level is
       spi_sense_ss_i : in STD_LOGIC_VECTOR ( 2 downto 0 );
       spi_sense_ss_o : out STD_LOGIC_VECTOR ( 2 downto 0 );
       spi_sense_ss_t : out STD_LOGIC;
-      uart_ft234_baudoutn : out STD_LOGIC;
-      uart_ft234_ctsn : in STD_LOGIC;
-      uart_ft234_dcdn : in STD_LOGIC;
-      uart_ft234_ddis : out STD_LOGIC;
-      uart_ft234_dsrn : in STD_LOGIC;
-      uart_ft234_dtrn : out STD_LOGIC;
-      uart_ft234_out1n : out STD_LOGIC;
-      uart_ft234_out2n : out STD_LOGIC;
-      uart_ft234_ri : in STD_LOGIC;
-      uart_ft234_rtsn : out STD_LOGIC;
-      uart_ft234_rxd : in STD_LOGIC;
-      uart_ft234_rxrdyn : out STD_LOGIC;
-      uart_ft234_txd : out STD_LOGIC;
-      uart_ft234_txrdyn : out STD_LOGIC;
+      uart_rtl_rxd : in STD_LOGIC;
+      uart_rtl_txd : out STD_LOGIC;
       gpio_leds_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
       clk_in_50m : in STD_LOGIC;
       nReset : in STD_LOGIC;
@@ -109,22 +117,32 @@ architecture rtl of top_level is
   signal spi_sense_ss_o_2 : STD_LOGIC_VECTOR ( 2 to 2 );
   signal spi_sense_ss_t : STD_LOGIC;  
   
-  signal uart_ft234_baudoutn : STD_LOGIC;
-  signal uart_ft234_dcdn : STD_LOGIC;
-  signal uart_ft234_ddis : STD_LOGIC;
-  signal uart_ft234_dsrn : STD_LOGIC;
-  signal uart_ft234_dtrn : STD_LOGIC;
-  signal uart_ft234_out1n : STD_LOGIC;
-  signal uart_ft234_out2n : STD_LOGIC;
-  signal uart_ft234_ri : STD_LOGIC;
-  signal uart_ft234_rxrdyn : STD_LOGIC;
-  signal uart_ft234_txrdyn : STD_LOGIC;  
-  
+  signal spi_sck_i : std_logic;
+  signal spi_mosi_i : std_logic;
+  signal spi_miso_i : std_logic;
+  signal spi_ss_i : std_logic_vector(2 downto 0);
   
   
 begin
 
     n_usb_rst <= user_sw;
+    n_usb_rts <= '0';
+    
+    bar_ps <= '0';
+    
+    -- SPI logic. 
+    -- Must select the MISO pins from 3 sources
+    spi_miso_i <= lsm_sdo_g when spi_ss_i = "110" else
+                  lsm_sdo_xm when spi_ss_i = "101" else
+                  bar_sdo when spi_ss_i = "011" else
+                  '0';
+    lsm_sda <= spi_mosi_i;
+    bar_sdi <= spi_mosi_i;
+    lsm_scl <= spi_sck_i;
+    bar_clk <= spi_sck_i;
+    n_lsm_cs_g <= spi_ss_i(0);
+    n_lsm_cs_xm <= spi_ss_i(1);
+    n_bar_cs <= spi_ss_i(2);
 
     mcu_i: component mcu
         port map (
@@ -136,35 +154,23 @@ begin
           gpio_leds_tri_o(2) => user_led3,
           gpio_leds_tri_o(3) => user_led4,
           spi_sense_io0_i => spi_sense_io0_i,
-          spi_sense_io0_o => spi_sense_io0_o,
+          spi_sense_io0_o => spi_mosi_i,
           spi_sense_io0_t => spi_sense_io0_t,
-          spi_sense_io1_i => spi_sense_io1_i,
+          spi_sense_io1_i => spi_miso_i,
           spi_sense_io1_o => spi_sense_io1_o,
           spi_sense_io1_t => spi_sense_io1_t,
           spi_sense_sck_i => spi_sense_sck_i,
-          spi_sense_sck_o => spi_sense_sck_o,
+          spi_sense_sck_o => spi_sck_i,
           spi_sense_sck_t => spi_sense_sck_t,
           spi_sense_ss_i(2) => spi_sense_ss_i_2(2),
           spi_sense_ss_i(1) => spi_sense_ss_i_1(1),
           spi_sense_ss_i(0) => spi_sense_ss_i_0(0),
-          spi_sense_ss_o(2) => spi_sense_ss_o_2(2),
-          spi_sense_ss_o(1) => spi_sense_ss_o_1(1),
-          spi_sense_ss_o(0) => spi_sense_ss_o_0(0),
+          spi_sense_ss_o(2) => spi_ss_i(2),
+          spi_sense_ss_o(1) => spi_ss_i(1),
+          spi_sense_ss_o(0) => spi_ss_i(0),
           spi_sense_ss_t => spi_sense_ss_t,
-          uart_ft234_baudoutn => uart_ft234_baudoutn,
-          uart_ft234_ctsn => n_usb_cts,
-          uart_ft234_dcdn => uart_ft234_dcdn,
-          uart_ft234_ddis => uart_ft234_ddis,
-          uart_ft234_dsrn => uart_ft234_dsrn,
-          uart_ft234_dtrn => uart_ft234_dtrn,
-          uart_ft234_out1n => uart_ft234_out1n,
-          uart_ft234_out2n => uart_ft234_out2n,
-          uart_ft234_ri => uart_ft234_ri,
-          uart_ft234_rtsn => n_usb_rts,
-          uart_ft234_rxd => usb_txd,
-          uart_ft234_rxrdyn => uart_ft234_rxrdyn,
-          uart_ft234_txd => usb_rxd,
-          uart_ft234_txrdyn => uart_ft234_txrdyn
+          uart_rtl_rxd => usb_txd,
+          uart_rtl_txd => usb_rxd
         );
 
 end rtl;

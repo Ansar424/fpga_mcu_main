@@ -22,7 +22,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports clk50m_en]
 ## SPI Flash
 ## These are the pins related to the config flash that are not dedicated pins.
 
-## n_SpiFlash_CS : 
+## n_SpiFlash_CS :
 #set_property PACKAGE_PIN T19 [get_ports n_spiflash_cs]
 #set_property IOSTANDARD LVCMOS33 [get_ports n_spiflash_cs]
 
@@ -100,7 +100,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports n_usb_rst]
 
 
 ######################################################################################
-## SD Card 
+## SD Card
 
 ## SD_clk :
 #set_property PACKAGE_PIN A19 [get_ports sd_clk]
@@ -133,21 +133,22 @@ set_property IOSTANDARD LVCMOS33 [get_ports n_usb_rst]
 ######################################################################################
 ## 9DOF sensor
 
-## LSM_scl :
-#set_property PACKAGE_PIN AB5 [get_ports lsm_scl]
-#set_property IOSTANDARD LVCMOS33 [get_ports lsm_scl]
+# LSM_scl :
+set_property PACKAGE_PIN AB5 [get_ports lsm_scl]
+set_property IOSTANDARD LVCMOS33 [get_ports lsm_scl]
 
-## LSM_sda :
-#set_property PACKAGE_PIN AA5 [get_ports lsm_sda]
-#set_property IOSTANDARD LVCMOS33 [get_ports lsm_sda]
+# LSM_sda :
+set_property PACKAGE_PIN AA5 [get_ports lsm_sda]
+set_property IOSTANDARD LVCMOS33 [get_ports lsm_sda]
 
-## LSM_sdo_g :
-#set_property PACKAGE_PIN AB7 [get_ports lsm_sdo_g]
-#set_property IOSTANDARD LVCMOS33 [get_ports lsm_sdo_g]
+# LSM_sdo_g :
+set_property PACKAGE_PIN AB7 [get_ports lsm_sdo_g]
+set_property IOSTANDARD LVCMOS33 [get_ports lsm_sdo_g]
+set_property PULLUP true [get_ports lsm_sdo_g]
 
-## n_LSM_cs_g :
-#set_property PACKAGE_PIN AB6 [get_ports n_lsm_cs_g]
-#set_property IOSTANDARD LVCMOS33 [get_ports n_lsm_cs_g]
+# n_LSM_cs_g :
+set_property PACKAGE_PIN AB6 [get_ports n_lsm_cs_g]
+set_property IOSTANDARD LVCMOS33 [get_ports n_lsm_cs_g]
 
 ## LSM_den_g :
 #set_property PACKAGE_PIN Y9 [get_ports lsm_den_g]
@@ -161,13 +162,14 @@ set_property IOSTANDARD LVCMOS33 [get_ports n_usb_rst]
 #set_property PACKAGE_PIN Y7 [get_ports lsm_int_g]
 #set_property IOSTANDARD LVCMOS33 [get_ports lsm_int_g]
 
-## LSM_sdo_xm :
-#set_property PACKAGE_PIN Y6 [get_ports lsm_sdo_xm]
-#set_property IOSTANDARD LVCMOS33 [get_ports lsm_sdo_xm]
+# LSM_sdo_xm :
+set_property PACKAGE_PIN Y6 [get_ports lsm_sdo_xm]
+set_property IOSTANDARD LVCMOS33 [get_ports lsm_sdo_xm]
+set_property PULLUP true [get_ports lsm_sdo_xm]
 
-## n_LSM_cs_xm :
-#set_property PACKAGE_PIN AA6 [get_ports n_lsm_cs_xm]
-#set_property IOSTANDARD LVCMOS33 [get_ports n_lsm_cs_xm]
+# n_LSM_cs_xm :
+set_property PACKAGE_PIN AA6 [get_ports n_lsm_cs_xm]
+set_property IOSTANDARD LVCMOS33 [get_ports n_lsm_cs_xm]
 
 ## LSM_int1_xm :
 #set_property PACKAGE_PIN AA8 [get_ports lsm_int1_xm]
@@ -180,25 +182,26 @@ set_property IOSTANDARD LVCMOS33 [get_ports n_usb_rst]
 ######################################################################################
 ## Barometer IO pins
 
-## BAR_clk :
-#set_property PACKAGE_PIN Y1 [get_ports bar_clk]
-#set_property IOSTANDARD LVCMOS33 [get_ports bar_clk]
+# BAR_clk :
+set_property PACKAGE_PIN Y1 [get_ports bar_clk]
+set_property IOSTANDARD LVCMOS33 [get_ports bar_clk]
 
-## BAR_ps :
-#set_property PACKAGE_PIN T1 [get_ports bar_ps]
-#set_property IOSTANDARD LVCMOS33 [get_ports bar_ps]
+# BAR_ps :
+set_property PACKAGE_PIN T1 [get_ports bar_ps]
+set_property IOSTANDARD LVCMOS33 [get_ports bar_ps]
 
-## BAR_sdi :
-#set_property PACKAGE_PIN U1 [get_ports bar_sdi]
-#set_property IOSTANDARD LVCMOS33 [get_ports bar_sdi]
+# BAR_sdi :
+set_property PACKAGE_PIN U1 [get_ports bar_sdi]
+set_property IOSTANDARD LVCMOS33 [get_ports bar_sdi]
 
-## BAR_sdo :
-#set_property PACKAGE_PIN W1 [get_ports bar_sdo]
-#set_property IOSTANDARD LVCMOS33 [get_ports bar_sdo]
+# BAR_sdo :
+set_property PACKAGE_PIN W1 [get_ports bar_sdo]
+set_property IOSTANDARD LVCMOS33 [get_ports bar_sdo]
+set_property PULLUP true [get_ports bar_sdo]
 
-## n_BAR_cs :
-#set_property PACKAGE_PIN AA1 [get_ports n_bar_cs]
-#set_property IOSTANDARD LVCMOS33 [get_ports n_bar_cs]
+# n_BAR_cs :
+set_property PACKAGE_PIN AA1 [get_ports n_bar_cs]
+set_property IOSTANDARD LVCMOS33 [get_ports n_bar_cs]
 
 ######################################################################################
 ## GPIO Port P05

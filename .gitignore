@@ -6,3 +6,4 @@ vivado*
 ip/*
 ip/*/*
 !ip/*/*.xci
+sdk
