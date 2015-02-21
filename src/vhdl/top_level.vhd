@@ -28,8 +28,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+library UNISIM;
+use UNISIM.VComponents.all;
 
 entity top_level is
     Port ( 
@@ -56,18 +56,17 @@ entity top_level is
         n_usb_rst : out std_logic;
     
         -- LSM9DS0 9DOF IMU interface
-        lsm_scl : out std_logic;
-        lsm_sda : out std_logic;
-        lsm_sdo_g : in std_logic;
+        lsm_scl : inout std_logic;
+        lsm_sda : inout std_logic;
+        lsm_sdo_g : out std_logic;
+        lsm_sdo_xm : out std_logic;
         n_lsm_cs_g : out std_logic;
-        lsm_sdo_xm : in std_logic;
         n_lsm_cs_xm : out std_logic;
         
         -- MS5611 Barometer interface
         bar_clk : out std_logic;
         bar_ps : out std_logic;
-        bar_sdi : out std_logic;
-        bar_sdo : in std_logic;
+        bar_sdi : inout std_logic;
         n_bar_cs : out std_logic
     
     );
@@ -76,73 +75,44 @@ end top_level;
 architecture rtl of top_level is
   component mcu is
     port (
-      spi_sense_io0_i : in STD_LOGIC;
-      spi_sense_io0_o : out STD_LOGIC;
-      spi_sense_io0_t : out STD_LOGIC;
-      spi_sense_io1_i : in STD_LOGIC;
-      spi_sense_io1_o : out STD_LOGIC;
-      spi_sense_io1_t : out STD_LOGIC;
-      spi_sense_sck_i : in STD_LOGIC;
-      spi_sense_sck_o : out STD_LOGIC;
-      spi_sense_sck_t : out STD_LOGIC;
-      spi_sense_ss_i : in STD_LOGIC_VECTOR ( 2 downto 0 );
-      spi_sense_ss_o : out STD_LOGIC_VECTOR ( 2 downto 0 );
-      spi_sense_ss_t : out STD_LOGIC;
-      uart_rtl_rxd : in STD_LOGIC;
-      uart_rtl_txd : out STD_LOGIC;
-      gpio_leds_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
-      clk_in_50m : in STD_LOGIC;
-      nReset : in STD_LOGIC;
-      pulse_led : out STD_LOGIC
+        gpio_leds_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
+        uart_rtl_rxd : in STD_LOGIC;
+        uart_rtl_txd : out STD_LOGIC;
+        iic_rtl_scl_i : in STD_LOGIC;
+        iic_rtl_scl_o : out STD_LOGIC;
+        iic_rtl_scl_t : out STD_LOGIC;
+        iic_rtl_sda_i : in STD_LOGIC;
+        iic_rtl_sda_o : out STD_LOGIC;
+        iic_rtl_sda_t : out STD_LOGIC;
+        clk_in_50m : in STD_LOGIC;
+        nReset : in STD_LOGIC;
+        pulse_led : out STD_LOGIC
     );
   end component mcu;
   
-  signal spi_sense_io0_i : STD_LOGIC;
-  signal spi_sense_io0_o : STD_LOGIC;
-  signal spi_sense_io0_t : STD_LOGIC;
-  signal spi_sense_io1_i : STD_LOGIC;
-  signal spi_sense_io1_o : STD_LOGIC;
-  signal spi_sense_io1_t : STD_LOGIC;
-  signal spi_sense_sck_i : STD_LOGIC;
-  signal spi_sense_sck_o : STD_LOGIC;
-  signal spi_sense_sck_t : STD_LOGIC;
-  signal spi_sense_ss_i_0 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal spi_sense_ss_i_1 : STD_LOGIC_VECTOR ( 1 to 1 );
-  signal spi_sense_ss_i_2 : STD_LOGIC_VECTOR ( 2 to 2 );
-  signal spi_sense_ss_io_0 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal spi_sense_ss_io_1 : STD_LOGIC_VECTOR ( 1 to 1 );
-  signal spi_sense_ss_io_2 : STD_LOGIC_VECTOR ( 2 to 2 );
-  signal spi_sense_ss_o_0 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal spi_sense_ss_o_1 : STD_LOGIC_VECTOR ( 1 to 1 );
-  signal spi_sense_ss_o_2 : STD_LOGIC_VECTOR ( 2 to 2 );
-  signal spi_sense_ss_t : STD_LOGIC;  
-  
-  signal spi_sck_i : std_logic;
-  signal spi_mosi_i : std_logic;
-  signal spi_miso_i : std_logic;
-  signal spi_ss_i : std_logic_vector(2 downto 0);
+  signal i2c_scl_in : std_logic;
+  signal i2c_scl_out : std_logic;
+  signal i2c_scl_t : std_logic;
+  signal i2c_sda_in : std_logic;
+  signal i2c_sda_out : std_logic;
+  signal i2c_sda_t : std_logic;
+  signal i2c_sda_bar : std_logic;
+  signal i2c_sda_lsm : std_logic;
   
   
 begin
 
+    clk50m_en <= '1';
+
     n_usb_rst <= user_sw;
     n_usb_rts <= '0';
     
-    bar_ps <= '0';
-    
-    -- SPI logic. 
-    -- Must select the MISO pins from 3 sources
-    spi_miso_i <= lsm_sdo_g when spi_ss_i = "110" else
-                  lsm_sdo_xm when spi_ss_i = "101" else
-                  bar_sdo when spi_ss_i = "011" else
-                  '0';
-    lsm_sda <= spi_mosi_i;
-    bar_sdi <= spi_mosi_i;
-    lsm_scl <= spi_sck_i;
-    bar_clk <= spi_sck_i;
-    n_lsm_cs_g <= spi_ss_i(0);
-    n_lsm_cs_xm <= spi_ss_i(1);
-    n_bar_cs <= spi_ss_i(2);
+    bar_ps <= '1';
+    n_bar_cs <= '0';
+    n_lsm_cs_g <= '1';
+    n_lsm_cs_xm <= '1';
+    lsm_sdo_g <= '0';
+    lsm_sdo_xm <= '0';
 
     mcu_i: component mcu
         port map (
@@ -153,24 +123,46 @@ begin
           gpio_leds_tri_o(1) => user_led2,
           gpio_leds_tri_o(2) => user_led3,
           gpio_leds_tri_o(3) => user_led4,
-          spi_sense_io0_i => spi_sense_io0_i,
-          spi_sense_io0_o => spi_mosi_i,
-          spi_sense_io0_t => spi_sense_io0_t,
-          spi_sense_io1_i => spi_miso_i,
-          spi_sense_io1_o => spi_sense_io1_o,
-          spi_sense_io1_t => spi_sense_io1_t,
-          spi_sense_sck_i => spi_sense_sck_i,
-          spi_sense_sck_o => spi_sck_i,
-          spi_sense_sck_t => spi_sense_sck_t,
-          spi_sense_ss_i(2) => spi_sense_ss_i_2(2),
-          spi_sense_ss_i(1) => spi_sense_ss_i_1(1),
-          spi_sense_ss_i(0) => spi_sense_ss_i_0(0),
-          spi_sense_ss_o(2) => spi_ss_i(2),
-          spi_sense_ss_o(1) => spi_ss_i(1),
-          spi_sense_ss_o(0) => spi_ss_i(0),
-          spi_sense_ss_t => spi_sense_ss_t,
+
+          iic_rtl_scl_i => i2c_scl_in,
+          iic_rtl_scl_o => i2c_scl_out,
+          iic_rtl_scl_t => i2c_scl_t,
+          iic_rtl_sda_i => i2c_sda_in,
+          iic_rtl_sda_o => i2c_sda_out,
+          iic_rtl_sda_t => i2c_sda_t,
+
           uart_rtl_rxd => usb_txd,
           uart_rtl_txd => usb_rxd
         );
+
+    iic_bar_iobuf: component IOBUF
+        port map (
+          I => i2c_sda_out,
+          IO => bar_sdi,
+          O => i2c_sda_bar,
+          T => i2c_sda_t
+        );
+    iic_lsm_sda_iobuf: component IOBUF
+        port map (
+          I => i2c_sda_out,
+          IO => lsm_sda,
+          O => i2c_sda_lsm,
+          T => i2c_sda_t
+        );
+
+    iic_lsm_sck_iobuf: component IOBUF
+        port map (
+          I => i2c_scl_out,
+          IO => lsm_scl,
+          O => i2c_scl_in,
+          T => i2c_scl_t
+        );
+        
+    --i2c_sda_in <= i2c_sda_bar and i2c_sda_lsm;
+    i2c_sda_in <= i2c_sda_lsm;
+    --bar_clk <= i2c_scl_out;
+    bar_clk <= '1';
+    --lsm_scl <= i2c_scl_out;
+
 
 end rtl;

@@ -194,10 +194,10 @@ set_property IOSTANDARD LVCMOS33 [get_ports bar_ps]
 set_property PACKAGE_PIN U1 [get_ports bar_sdi]
 set_property IOSTANDARD LVCMOS33 [get_ports bar_sdi]
 
-# BAR_sdo :
-set_property PACKAGE_PIN W1 [get_ports bar_sdo]
-set_property IOSTANDARD LVCMOS33 [get_ports bar_sdo]
-set_property PULLUP true [get_ports bar_sdo]
+## BAR_sdo :
+#set_property PACKAGE_PIN W1 [get_ports bar_sdo]
+#set_property IOSTANDARD LVCMOS33 [get_ports bar_sdo]
+#set_property PULLUP true [get_ports bar_sdo]
 
 # n_BAR_cs :
 set_property PACKAGE_PIN AA1 [get_ports n_bar_cs]
