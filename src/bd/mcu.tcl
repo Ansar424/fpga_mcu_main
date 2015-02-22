@@ -371,6 +371,7 @@ proc create_root_design { parentCell } {
   # Create ports
   set clk_in_50m [ create_bd_port -dir I -type clk clk_in_50m ]
   set_property -dict [ list CONFIG.FREQ_HZ {50000000}  ] $clk_in_50m
+  set iic_gpo [ create_bd_port -dir O -from 7 -to 0 iic_gpo ]
   set nReset [ create_bd_port -dir I -type rst nReset ]
   set pulse_led [ create_bd_port -dir O pulse_led ]
 
@@ -380,7 +381,7 @@ proc create_root_design { parentCell } {
 
   # Create instance: axi_iic_0, and set properties
   set axi_iic_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_iic:2.0 axi_iic_0 ]
-  set_property -dict [ list CONFIG.IIC_FREQ_KHZ {400}  ] $axi_iic_0
+  set_property -dict [ list CONFIG.C_GPO_WIDTH {8} CONFIG.IIC_FREQ_KHZ {400}  ] $axi_iic_0
 
   # Create instance: axi_timer_0, and set properties
   set axi_timer_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_timer:2.0 axi_timer_0 ]
@@ -421,6 +422,7 @@ proc create_root_design { parentCell } {
 
   # Create port connections
   connect_bd_net -net ARESETN_1 [get_bd_pins mcu_core_system/interconnect_aresetn] [get_bd_pins microblaze_0_axi_periph/ARESETN]
+  connect_bd_net -net axi_iic_0_gpo [get_bd_ports iic_gpo] [get_bd_pins axi_iic_0/gpo]
   connect_bd_net -net axi_iic_0_iic2intc_irpt [get_bd_pins axi_iic_0/iic2intc_irpt] [get_bd_pins microblaze_0_xlconcat/In2]
   connect_bd_net -net axi_timer_0_interrupt [get_bd_pins axi_timer_0/interrupt] [get_bd_pins microblaze_0_xlconcat/In0]
   connect_bd_net -net axi_uartlite_0_interrupt [get_bd_pins axi_uartlite_0/interrupt] [get_bd_pins microblaze_0_xlconcat/In1]

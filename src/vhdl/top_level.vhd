@@ -64,7 +64,7 @@ entity top_level is
         n_lsm_cs_xm : out std_logic;
         
         -- MS5611 Barometer interface
-        bar_clk : out std_logic;
+        bar_clk : inout std_logic;
         bar_ps : out std_logic;
         bar_sdi : inout std_logic;
         n_bar_cs : out std_logic
@@ -75,29 +75,33 @@ end top_level;
 architecture rtl of top_level is
   component mcu is
     port (
+        clk_in_50m : in STD_LOGIC;
+        nReset : in STD_LOGIC;
+        pulse_led : out STD_LOGIC;
         gpio_leds_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
-        uart_rtl_rxd : in STD_LOGIC;
-        uart_rtl_txd : out STD_LOGIC;
         iic_rtl_scl_i : in STD_LOGIC;
         iic_rtl_scl_o : out STD_LOGIC;
         iic_rtl_scl_t : out STD_LOGIC;
         iic_rtl_sda_i : in STD_LOGIC;
         iic_rtl_sda_o : out STD_LOGIC;
         iic_rtl_sda_t : out STD_LOGIC;
-        clk_in_50m : in STD_LOGIC;
-        nReset : in STD_LOGIC;
-        pulse_led : out STD_LOGIC
+        uart_rtl_rxd : in STD_LOGIC;
+        uart_rtl_txd : out STD_LOGIC;
+        iic_gpo : out STD_LOGIC_VECTOR ( 7 downto 0 )
     );
   end component mcu;
   
   signal i2c_scl_in : std_logic;
   signal i2c_scl_out : std_logic;
   signal i2c_scl_t : std_logic;
+  signal i2c_scl_lsm : std_logic;
+  signal i2c_scl_bar : std_logic;
   signal i2c_sda_in : std_logic;
   signal i2c_sda_out : std_logic;
   signal i2c_sda_t : std_logic;
   signal i2c_sda_bar : std_logic;
   signal i2c_sda_lsm : std_logic;
+  signal iic_gpo_i : std_logic_vector (7 downto 0);
   
   
 begin
@@ -109,10 +113,14 @@ begin
     
     bar_ps <= '1';
     n_bar_cs <= '0';
+
     n_lsm_cs_g <= '1';
     n_lsm_cs_xm <= '1';
     lsm_sdo_g <= '0';
     lsm_sdo_xm <= '0';
+
+    i2c_scl_in <= i2c_scl_lsm and i2c_scl_bar;
+    i2c_sda_in <= i2c_sda_lsm and i2c_sda_bar;
 
     mcu_i: component mcu
         port map (
@@ -130,18 +138,13 @@ begin
           iic_rtl_sda_i => i2c_sda_in,
           iic_rtl_sda_o => i2c_sda_out,
           iic_rtl_sda_t => i2c_sda_t,
+          
+          iic_gpo => iic_gpo_i,
 
           uart_rtl_rxd => usb_txd,
           uart_rtl_txd => usb_rxd
         );
 
-    iic_bar_iobuf: component IOBUF
-        port map (
-          I => i2c_sda_out,
-          IO => bar_sdi,
-          O => i2c_sda_bar,
-          T => i2c_sda_t
-        );
     iic_lsm_sda_iobuf: component IOBUF
         port map (
           I => i2c_sda_out,
@@ -150,19 +153,30 @@ begin
           T => i2c_sda_t
         );
 
+    iic_bar_sda_iobuf: component IOBUF
+        port map (
+          I => i2c_sda_out,
+          IO => bar_sdi,
+          O => i2c_sda_bar,
+          T => i2c_sda_t
+        );
+
     iic_lsm_sck_iobuf: component IOBUF
         port map (
           I => i2c_scl_out,
           IO => lsm_scl,
-          O => i2c_scl_in,
+          O => i2c_scl_lsm,
           T => i2c_scl_t
         );
-        
-    --i2c_sda_in <= i2c_sda_bar and i2c_sda_lsm;
-    i2c_sda_in <= i2c_sda_lsm;
-    --bar_clk <= i2c_scl_out;
-    bar_clk <= '1';
-    --lsm_scl <= i2c_scl_out;
+ 
+     iic_bar_sck_iobuf: component IOBUF
+        port map (
+          I => i2c_scl_out,
+          IO => bar_clk,
+          O => i2c_scl_bar,
+          T => i2c_scl_t
+        );
+
 
 
 end rtl;

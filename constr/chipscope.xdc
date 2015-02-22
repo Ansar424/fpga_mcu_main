@@ -1,22 +1,49 @@
-
-
-
+set_property MARK_DEBUG true [get_nets i2c_scl_bar]
+set_property MARK_DEBUG true [get_nets i2c_scl_lsm]
+set_property MARK_DEBUG true [get_nets iic_rtl_scl_i]
+set_property MARK_DEBUG true [get_nets i2c_sda_bar]
+set_property MARK_DEBUG true [get_nets i2c_sda_lsm]
+set_property MARK_DEBUG true [get_nets iic_rtl_sda_i]
+set_property MARK_DEBUG true [get_nets user_led1_OBUF]
+set_property MARK_DEBUG true [get_nets T]
+set_property MARK_DEBUG true [get_nets n_15_mcu_i]
 create_debug_core u_ila_0 ila
 set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
-set_property ALL_PROBE_SAME_MU_CNT 4 [get_debug_cores u_ila_0]
-set_property C_ADV_TRIGGER true [get_debug_cores u_ila_0]
-set_property C_DATA_DEPTH 32768 [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_DATA_DEPTH 65536 [get_debug_cores u_ila_0]
 set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
-set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 2 [get_debug_cores u_ila_0]
 set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
 set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
 set_property port_width 1 [get_debug_ports u_ila_0/clk]
 connect_debug_port u_ila_0/clk [get_nets [list mcu_i/clk_out1]]
 set_property port_width 1 [get_debug_ports u_ila_0/probe0]
-connect_debug_port u_ila_0/probe0 [get_nets [list iic_rtl_sda_i]]
+connect_debug_port u_ila_0/probe0 [get_nets [list i2c_scl_bar]]
 create_debug_port u_ila_0 probe
 set_property port_width 1 [get_debug_ports u_ila_0/probe1]
-connect_debug_port u_ila_0/probe1 [get_nets [list iic_lsm_sck_iobuf/O]]
+connect_debug_port u_ila_0/probe1 [get_nets [list i2c_scl_lsm]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list i2c_sda_bar]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list i2c_sda_lsm]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list iic_rtl_scl_i]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list iic_rtl_sda_i]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list n_15_mcu_i]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list T]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe8]
+connect_debug_port u_ila_0/probe8 [get_nets [list user_led1_OBUF]]
 set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
 set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
 set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]

@@ -136,10 +136,12 @@ set_property IOSTANDARD LVCMOS33 [get_ports n_usb_rst]
 # LSM_scl :
 set_property PACKAGE_PIN AB5 [get_ports lsm_scl]
 set_property IOSTANDARD LVCMOS33 [get_ports lsm_scl]
+set_property PULLUP true [get_ports lsm_scl]
 
 # LSM_sda :
 set_property PACKAGE_PIN AA5 [get_ports lsm_sda]
 set_property IOSTANDARD LVCMOS33 [get_ports lsm_sda]
+set_property PULLUP true [get_ports lsm_sda]
 
 # LSM_sdo_g :
 set_property PACKAGE_PIN AB7 [get_ports lsm_sdo_g]
@@ -185,6 +187,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports n_lsm_cs_xm]
 # BAR_clk :
 set_property PACKAGE_PIN Y1 [get_ports bar_clk]
 set_property IOSTANDARD LVCMOS33 [get_ports bar_clk]
+set_property PULLUP true [get_ports bar_clk]
 
 # BAR_ps :
 set_property PACKAGE_PIN T1 [get_ports bar_ps]
@@ -193,6 +196,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports bar_ps]
 # BAR_sdi :
 set_property PACKAGE_PIN U1 [get_ports bar_sdi]
 set_property IOSTANDARD LVCMOS33 [get_ports bar_sdi]
+set_property PULLUP true [get_ports bar_sdi]
 
 ## BAR_sdo :
 #set_property PACKAGE_PIN W1 [get_ports bar_sdo]
