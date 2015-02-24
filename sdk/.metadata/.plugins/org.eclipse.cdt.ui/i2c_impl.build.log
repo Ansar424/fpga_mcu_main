@@ -1,0 +1,6 @@
+00:17:37 **** Incremental Build of configuration Debug for project i2c_impl ****
+make all 
+make: Nothing to be done for `all'.
+
+00:17:37 Build Finished (took 64ms)
+

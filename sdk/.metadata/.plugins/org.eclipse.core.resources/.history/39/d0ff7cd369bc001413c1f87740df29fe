@@ -1,0 +1,53 @@
+#include "platform.h"
+#include <stdio.h>
+#include "xparameters.h"
+#include "xil_cache.h"
+#include "xgpio.h"
+#include "xintc.h"
+#include "xgpio.h"
+#include "xiic.h"
+
+void print(char *str);
+
+#define LED_CHANNEL 1
+#define LSM_XM_ADR		0x1E
+#define LSM_G_ADR		0x6A
+#define BAR_ADR			0x77
+
+XIic Iic;
+XGpio Gpio;
+XIntc Intc;
+
+int main()
+{
+	int status;
+
+
+	init_platform();
+
+	//Init GPIO
+	status = XGpio_Initialize(&Gpio, XPAR_AXI_GPIO_0_DEVICE_ID);
+	if (status != XST_SUCCESS)  {
+		print ("GPIO Failure");
+	}
+
+ 	// Init Interrupt controller
+ 	status = XIntc_Initialize(&Intc, XPAR_INTC_0_DEVICE_ID);
+	if (status != XST_SUCCESS)  {
+		print ("Intc Failure");
+	}
+
+ 	// Init I2C controller
+ 	status = XIic_Initialize(&Iic, XPAR_IIC_0_DEVICE_ID);
+	if (status != XST_SUCCESS)  {
+		print ("I2C Failure");
+	}
+
+
+
+
+ 	XGpio_SetDataDirection(&Gpio, LED_CHANNEL, 0x0);
+
+	cleanup_platform();
+	return 0;
+}
