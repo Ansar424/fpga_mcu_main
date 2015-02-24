@@ -65,8 +65,8 @@ entity top_level is
         
         -- MS5611 Barometer interface
         bar_clk : inout std_logic;
-        bar_ps : out std_logic;
         bar_sdi : inout std_logic;
+        bar_ps : out std_logic;
         n_bar_cs : out std_logic
     
     );
@@ -110,9 +110,7 @@ begin
 
     n_usb_rst <= user_sw;
     n_usb_rts <= '0';
-    
-    bar_ps <= iic_gpo_i(5);
-    n_bar_cs <= iic_gpo_i(4);
+ 
 
     mcu_i: component mcu
         port map (
@@ -144,10 +142,13 @@ begin
     -- Barometer and IMU I2C is connected internally using a NAND port
     -- This will emulate the open drain metwork that is used externally    
         
-    n_lsm_cs_g <= iic_gpo_i(0);
-        n_lsm_cs_xm <= iic_gpo_i(2);
+        n_lsm_cs_g <= iic_gpo_i(0);
         lsm_sdo_g <= iic_gpo_i(1);
+        n_lsm_cs_xm <= iic_gpo_i(2);
         lsm_sdo_xm <= iic_gpo_i(3);
+        n_bar_cs <= iic_gpo_i(4);
+        bar_ps <= iic_gpo_i(5);
+        
     
         i2c_scl_in <= i2c_scl_lsm and i2c_scl_bar;
         i2c_sda_in <= i2c_sda_lsm and i2c_sda_bar;        
