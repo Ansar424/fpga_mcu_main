@@ -1,0 +1,47 @@
+#-----------------------------------------------------------
+# Vivado v2014.4 (64-bit)
+# SW Build 1071353 on Tue Nov 18 16:47:07 MST 2014
+# IP Build 1070531 on Tue Nov 18 01:10:18 MST 2014
+# Start of session at: Wed Feb 25 22:44:31 2015
+# Process ID: 54692
+# Log file: /home/kjell/fpga_dev/fpga_mcu_main/proj/vivado.log
+# Journal file: /home/kjell/fpga_dev/fpga_mcu_main/proj/vivado.jou
+#-----------------------------------------------------------
+start_gui 
+open_project /home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2014.4/data/ip'.
+open_project: Time (s): cpu = 00:00:29 ; elapsed = 00:00:11 . Memory (MB): peak = 5765.531 ; gain = 127.246 ; free physical = 3605 ; free virtual = 14784
+open_bd_design {/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/mcu.bd}
+Adding component instance block -- xilinx.com:ip:axi_gpio:2.0 - axi_gpio_0
+Adding component instance block -- xilinx.com:ip:axi_iic:2.0 - axi_iic_0
+Adding component instance block -- xilinx.com:ip:axi_timer:2.0 - axi_timer_0
+Adding component instance block -- xilinx.com:ip:axi_uartlite:2.0 - axi_uartlite_0
+Adding component instance block -- xilinx.com:ip:clk_wiz:5.1 - clk_wiz_1
+Adding component instance block -- xilinx.com:ip:xlconcat:2.1 - microblaze_0_xlconcat
+Adding component instance block -- xilinx.com:ip:c_counter_binary:12.0 - c_counter_binary_0
+Adding component instance block -- xilinx.com:ip:util_reduced_logic:2.0 - util_reduced_logic_0
+Adding component instance block -- xilinx.com:ip:xlslice:1.0 - xlslice_0
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:mdm:3.2 - mdm_1
+Adding component instance block -- xilinx.com:ip:microblaze:9.4 - microblaze_0
+Adding component instance block -- xilinx.com:ip:axi_intc:4.1 - microblaze_0_axi_intc
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_clk_wiz_1_100M
+Adding component instance block -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - dlmb_bram_if_cntlr
+Adding component instance block -- xilinx.com:ip:lmb_v10:3.0 - dlmb_v10
+Adding component instance block -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - ilmb_bram_if_cntlr
+Adding component instance block -- xilinx.com:ip:lmb_v10:3.0 - ilmb_v10
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.2 - lmb_bram
+Successfully read diagram <mcu> from BD file </home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/mcu.bd>
+open_bd_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:07 . Memory (MB): peak = 5797.465 ; gain = 27.934 ; free physical = 3557 ; free virtual = 14736
+write_hwdef -force  -file /home/kjell/fpga_dev/fpga_mcu_main/sdk/top_level.hdf
+launch_sdk -workspace /home/kjell/fpga_dev/fpga_mcu_main/sdk -hwspec /home/kjell/fpga_dev/fpga_mcu_main/sdk/top_level.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace /home/kjell/fpga_dev/fpga_mcu_main/sdk -hwspec /home/kjell/fpga_dev/fpga_mcu_main/sdk/top_level.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+close_bd_design [get_bd_designs mcu]
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Feb 25 23:28:58 2015...

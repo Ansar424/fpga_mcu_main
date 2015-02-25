@@ -1,0 +1,677 @@
+#-----------------------------------------------------------
+# Vivado v2014.4 (64-bit)
+# SW Build 1071353 on Tue Nov 18 16:47:07 MST 2014
+# IP Build 1070531 on Tue Nov 18 01:10:18 MST 2014
+# Start of session at: Tue Feb 24 21:24:35 2015
+# Process ID: 42900
+# Log file: /home/kjell/fpga_dev/fpga_mcu_main/proj/vivado.log
+# Journal file: /home/kjell/fpga_dev/fpga_mcu_main/proj/vivado.jou
+#-----------------------------------------------------------
+open_project 
+ERROR: [Common 17-163] Missing value for option 'file', please type 'open_project -help' for usage info.
+open_project mcu_main/mcu_main.xpr 
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2014.4/data/ip'.
+mcu_main
+start_gui 
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2014.4
+  **** Build date : Nov 18 2014-16:45:43
+    ** Copyright 1986-1999, 2001-2014 Xilinx, Inc. All Rights Reserved.
+
+INFO: hw_server application started
+INFO: Use Ctrl-C to exit hw_server application
+
+
+WARNING: [Labtoolstcl 44-26] No hardware targets exist on the server [localhost]
+Check to make sure the cable targets connected to this machine are properly connected
+and powered up, then use the disconnect_hw_server and connect_hw_server commands
+to re-register the hardware targets.
+connect_hw_server
+ERROR: [Labtools 27-3] Attempt to create a duplicate server handle localhost
+close_hw
+****** Webtalk v2014.4 (64-bit)
+  **** SW Build 1071353 on Tue Nov 18 16:47:07 MST 2014
+  **** IP Build 1070531 on Tue Nov 18 01:10:18 MST 2014
+    ** Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+
+source /home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.hw/webtalk/labtool_webtalk.tcl -notrace
+INFO: [Common 17-186] '/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.hw/webtalk/usage_statistics_ext_labtool.xml' has been successfully sent to Xilinx on Tue Feb 24 21:26:29 2015. For additional details about this file, please refer to the WebTalk help file at /opt/Xilinx/Vivado/2014.4/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Tue Feb 24 21:26:29 2015...
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+open_hw_target [lindex [get_hw_targets -of_objects [get_hw_servers localhost]] 0]
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210249982297
+current_hw_device [lindex [get_hw_devices] 0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-1434] Device xc7a200t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+close_hw
+reset_run synth_1
+launch_runs impl_1
+Adding component instance block -- xilinx.com:ip:axi_gpio:2.0 - axi_gpio_0
+Adding component instance block -- xilinx.com:ip:axi_iic:2.0 - axi_iic_0
+Adding component instance block -- xilinx.com:ip:axi_timer:2.0 - axi_timer_0
+Adding component instance block -- xilinx.com:ip:axi_uartlite:2.0 - axi_uartlite_0
+Adding component instance block -- xilinx.com:ip:clk_wiz:5.1 - clk_wiz_1
+Adding component instance block -- xilinx.com:ip:xlconcat:2.1 - microblaze_0_xlconcat
+Adding component instance block -- xilinx.com:ip:c_counter_binary:12.0 - c_counter_binary_0
+Adding component instance block -- xilinx.com:ip:util_reduced_logic:2.0 - util_reduced_logic_0
+Adding component instance block -- xilinx.com:ip:xlslice:1.0 - xlslice_0
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:mdm:3.2 - mdm_1
+Adding component instance block -- xilinx.com:ip:microblaze:9.4 - microblaze_0
+Adding component instance block -- xilinx.com:ip:axi_intc:4.1 - microblaze_0_axi_intc
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_clk_wiz_1_100M
+Adding component instance block -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - dlmb_bram_if_cntlr
+Adding component instance block -- xilinx.com:ip:lmb_v10:3.0 - dlmb_v10
+Adding component instance block -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - ilmb_bram_if_cntlr
+Adding component instance block -- xilinx.com:ip:lmb_v10:3.0 - ilmb_v10
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.2 - lmb_bram
+Successfully read diagram <mcu> from BD file </home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/mcu.bd>
+INFO: [xilinx.com:ip:axi_intc:4.1-1] /mcu_core_system/microblaze_0_axi_intc: The AXI INTC core has been configured to operate with synchronous clocks.
+Generated Block Design Tcl file /home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/hw_handoff/mcu_bd.tcl
+Exporting to file /home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/hw_handoff/mcu.hwh
+VHDL Output written to : mcu.vhd
+VHDL Output written to : mcu_wrapper.vhd
+Wrote  : </home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/mcu.bd> 
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_axi_gpio_0_0'. Target already exists and is up to date.
+INFO: [IP_Flow 19-1706] Not generating 'Implementation' target for IP 'mcu_axi_gpio_0_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_axi_iic_0_0'. Target already exists and is up to date.
+INFO: [IP_Flow 19-1706] Not generating 'Implementation' target for IP 'mcu_axi_iic_0_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_iic_0 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_axi_timer_0_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_timer_0 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_axi_uartlite_0_0'. Target already exists and is up to date.
+INFO: [IP_Flow 19-1706] Not generating 'Implementation' target for IP 'mcu_axi_uartlite_0_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_uartlite_0 .
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'mcu_clk_wiz_1_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'mcu_clk_wiz_1_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_1 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_mdm_1_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/mdm_1 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_microblaze_0_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/microblaze_0 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_microblaze_0_axi_intc_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/microblaze_0_axi_intc .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_dlmb_bram_if_cntlr_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/microblaze_0_local_memory/dlmb_bram_if_cntlr .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_dlmb_v10_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/microblaze_0_local_memory/dlmb_v10 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_ilmb_bram_if_cntlr_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/microblaze_0_local_memory/ilmb_bram_if_cntlr .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_ilmb_v10_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/microblaze_0_local_memory/ilmb_v10 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_lmb_bram_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/microblaze_0_local_memory/lmb_bram .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_rst_clk_wiz_1_100M_0'. Target already exists and is up to date.
+INFO: [IP_Flow 19-1706] Not generating 'Implementation' target for IP 'mcu_rst_clk_wiz_1_100M_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/rst_clk_wiz_1_100M .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_xbar_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_axi_periph/xbar .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_microblaze_0_xlconcat_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_xlconcat .
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'mcu_c_counter_binary_0_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pulse_led_gen/c_counter_binary_0 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_util_reduced_logic_0_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pulse_led_gen/util_reduced_logic_0 .
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'mcu_xlslice_0_0'...
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pulse_led_gen/xlslice_0 .
+Adding component instance block -- xilinx.com:ip:axi_gpio:2.0 - axi_gpio_0
+Adding component instance block -- xilinx.com:ip:axi_iic:2.0 - axi_iic_0
+Adding component instance block -- xilinx.com:ip:axi_timer:2.0 - axi_timer_0
+Adding component instance block -- xilinx.com:ip:axi_uartlite:2.0 - axi_uartlite_0
+Adding component instance block -- xilinx.com:ip:clk_wiz:5.1 - clk_wiz_1
+Adding component instance block -- xilinx.com:ip:xlconcat:2.1 - microblaze_0_xlconcat
+Adding component instance block -- xilinx.com:ip:c_counter_binary:12.0 - c_counter_binary_0
+Adding component instance block -- xilinx.com:ip:util_reduced_logic:2.0 - util_reduced_logic_0
+Adding component instance block -- xilinx.com:ip:xlslice:1.0 - xlslice_0
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:mdm:3.2 - mdm_1
+Adding component instance block -- xilinx.com:ip:microblaze:9.4 - microblaze_0
+Adding component instance block -- xilinx.com:ip:axi_intc:4.1 - microblaze_0_axi_intc
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_clk_wiz_1_100M
+Adding component instance block -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - dlmb_bram_if_cntlr
+Adding component instance block -- xilinx.com:ip:lmb_v10:3.0 - dlmb_v10
+Adding component instance block -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - ilmb_bram_if_cntlr
+Adding component instance block -- xilinx.com:ip:lmb_v10:3.0 - ilmb_v10
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.2 - lmb_bram
+Successfully read diagram <mcu> from BD file </home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/mcu.bd>
+INFO: [xilinx.com:ip:axi_intc:4.1-1] /mcu_core_system/microblaze_0_axi_intc: The AXI INTC core has been configured to operate with synchronous clocks.
+Generated Block Design Tcl file /home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/hw_handoff/mcu_bd.tcl
+Exporting to file /home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/hw_handoff/mcu.hwh
+VHDL Output written to : mcu.vhd
+VHDL Output written to : mcu_wrapper.vhd
+Wrote  : </home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/mcu.bd> 
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_axi_gpio_0_0'. Target already exists and is up to date.
+INFO: [IP_Flow 19-1706] Not generating 'Implementation' target for IP 'mcu_axi_gpio_0_0'. Target already exists and is up to date.
+INFO: [IP_Flow 19-1706] Not generating 'Implementation' target for IP 'mcu_axi_gpio_0_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_axi_iic_0_0'. Target already exists and is up to date.
+INFO: [IP_Flow 19-1706] Not generating 'Implementation' target for IP 'mcu_axi_iic_0_0'. Target already exists and is up to date.
+INFO: [IP_Flow 19-1706] Not generating 'Implementation' target for IP 'mcu_axi_iic_0_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_iic_0 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_axi_timer_0_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_timer_0 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_axi_uartlite_0_0'. Target already exists and is up to date.
+INFO: [IP_Flow 19-1706] Not generating 'Implementation' target for IP 'mcu_axi_uartlite_0_0'. Target already exists and is up to date.
+INFO: [IP_Flow 19-1706] Not generating 'Implementation' target for IP 'mcu_axi_uartlite_0_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_uartlite_0 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_clk_wiz_1_0'. Target already exists and is up to date.
+INFO: [IP_Flow 19-1706] Not generating 'Implementation' target for IP 'mcu_clk_wiz_1_0'. Target already exists and is up to date.
+INFO: [IP_Flow 19-1706] Not generating 'Implementation' target for IP 'mcu_clk_wiz_1_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_1 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_mdm_1_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/mdm_1 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_microblaze_0_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/microblaze_0 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_microblaze_0_axi_intc_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/microblaze_0_axi_intc .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_dlmb_bram_if_cntlr_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/microblaze_0_local_memory/dlmb_bram_if_cntlr .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_dlmb_v10_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/microblaze_0_local_memory/dlmb_v10 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_ilmb_bram_if_cntlr_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/microblaze_0_local_memory/ilmb_bram_if_cntlr .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_ilmb_v10_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/microblaze_0_local_memory/ilmb_v10 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_lmb_bram_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/microblaze_0_local_memory/lmb_bram .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_rst_clk_wiz_1_100M_0'. Target already exists and is up to date.
+INFO: [IP_Flow 19-1706] Not generating 'Implementation' target for IP 'mcu_rst_clk_wiz_1_100M_0'. Target already exists and is up to date.
+INFO: [IP_Flow 19-1706] Not generating 'Implementation' target for IP 'mcu_rst_clk_wiz_1_100M_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mcu_core_system/rst_clk_wiz_1_100M .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_xbar_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_axi_periph/xbar .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_microblaze_0_xlconcat_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_xlconcat .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_c_counter_binary_0_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pulse_led_gen/c_counter_binary_0 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_util_reduced_logic_0_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pulse_led_gen/util_reduced_logic_0 .
+INFO: [IP_Flow 19-1706] Not generating 'Synthesis' target for IP 'mcu_xlslice_0_0'. Target already exists and is up to date.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pulse_led_gen/xlslice_0 .
+[Tue Feb 24 21:27:54 2015] Launched synth_1...
+Run output will be captured here: /home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.runs/synth_1/runme.log
+[Tue Feb 24 21:27:54 2015] Launched impl_1...
+Run output will be captured here: /home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:28 ; elapsed = 00:00:23 . Memory (MB): peak = 5956.203 ; gain = 146.117 ; free physical = 3508 ; free virtual = 14664
+launch_runs impl_1 -to_step write_bitstream
+[Tue Feb 24 21:32:39 2015] Launched impl_1...
+Run output will be captured here: /home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.runs/impl_1/runme.log
+open_hw
+INFO: [Vivado 12-4158] Exported Hardware file is out of date. Exported hardware information may be inconsistent with respect to the current state of the design. It is recommended that you re-export the design and launch SDK otherwise SDK is launched with out of date hardware system file.
+launch_sdk -workspace /home/kjell/fpga_dev/fpga_mcu_main/sdk -hwspec /home/kjell/fpga_dev/fpga_mcu_main/sdk/top_level.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace /home/kjell/fpga_dev/fpga_mcu_main/sdk -hwspec /home/kjell/fpga_dev/fpga_mcu_main/sdk/top_level.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2014.4
+  **** Build date : Nov 18 2014-16:45:43
+    ** Copyright 1986-1999, 2001-2014 Xilinx, Inc. All Rights Reserved.
+
+INFO: hw_server application started
+INFO: Use Ctrl-C to exit hw_server application
+
+
+open_hw_target [lindex [get_hw_targets -of_objects [get_hw_servers localhost]] 0]
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210249982297
+set_property PROGRAM.FILE {/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.runs/impl_1/top_level.bit} [lindex [get_hw_devices] 0]
+set_property PROBES.FILE {/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.runs/impl_1/debug_nets.ltx} [lindex [get_hw_devices] 0]
+current_hw_device [lindex [get_hw_devices] 0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-1434] Device xc7a200t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+set_property PROBES.FILE {/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.runs/impl_1/debug_nets.ltx} [lindex [get_hw_devices] 0]
+set_property PROGRAM.FILE {/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.runs/impl_1/top_level.bit} [lindex [get_hw_devices] 0]
+program_hw_devices [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-32] Done pin status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 5958.203 ; gain = 0.000 ; free physical = 3142 ; free virtual = 14318
+refresh_hw_device [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-1434] Device xc7a200t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+close_hw
+stop_
+ambiguous command name "stop_": stop_gui stop_hw_sio_scan stop_hw_sio_sweep
+stop_gui
+start_gui
+open_bd_design {/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/mcu.bd}
+Adding component instance block -- xilinx.com:ip:axi_gpio:2.0 - axi_gpio_0
+Adding component instance block -- xilinx.com:ip:axi_iic:2.0 - axi_iic_0
+Adding component instance block -- xilinx.com:ip:axi_timer:2.0 - axi_timer_0
+Adding component instance block -- xilinx.com:ip:axi_uartlite:2.0 - axi_uartlite_0
+Adding component instance block -- xilinx.com:ip:clk_wiz:5.1 - clk_wiz_1
+Adding component instance block -- xilinx.com:ip:xlconcat:2.1 - microblaze_0_xlconcat
+Adding component instance block -- xilinx.com:ip:c_counter_binary:12.0 - c_counter_binary_0
+Adding component instance block -- xilinx.com:ip:util_reduced_logic:2.0 - util_reduced_logic_0
+Adding component instance block -- xilinx.com:ip:xlslice:1.0 - xlslice_0
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:mdm:3.2 - mdm_1
+Adding component instance block -- xilinx.com:ip:microblaze:9.4 - microblaze_0
+Adding component instance block -- xilinx.com:ip:axi_intc:4.1 - microblaze_0_axi_intc
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_clk_wiz_1_100M
+Adding component instance block -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - dlmb_bram_if_cntlr
+Adding component instance block -- xilinx.com:ip:lmb_v10:3.0 - dlmb_v10
+Adding component instance block -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - ilmb_bram_if_cntlr
+Adding component instance block -- xilinx.com:ip:lmb_v10:3.0 - ilmb_v10
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.2 - lmb_bram
+Successfully read diagram <mcu> from BD file </home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/mcu.bd>
+open_bd_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 5958.203 ; gain = 0.000 ; free physical = 3011 ; free virtual = 14187
+write_hwdef -force  -file /home/kjell/fpga_dev/fpga_mcu_main/sdk/top_level.hdf
+close_bd_design [get_bd_designs mcu]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream
+[Tue Feb 24 21:48:56 2015] Launched synth_1...
+Run output will be captured here: /home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.runs/synth_1/runme.log
+[Tue Feb 24 21:48:56 2015] Launched impl_1...
+Run output will be captured here: /home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.runs/impl_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a200tfbg484-2
+INFO: [Netlist 29-17] Analyzing 260 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2014.4
+Loading clock regions from /opt/Xilinx/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a200t/ClockRegion.xml
+Loading clock buffers from /opt/Xilinx/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a200t/ClockBuffers.xml
+Loading clock placement rules from /opt/Xilinx/Vivado/2014.4/data/parts/xilinx/artix7/ClockPlacerRules.xml
+Loading package pin functions from /opt/Xilinx/Vivado/2014.4/data/parts/xilinx/artix7/PinFunctions.xml...
+Loading package from /opt/Xilinx/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a200t/fbg484/Package.xml
+Loading io standards from /opt/Xilinx/Vivado/2014.4/data/./parts/xilinx/artix7/IOStandards.xml
+Loading device configuration modes from /opt/Xilinx/Vivado/2014.4/data/parts/xilinx/artix7/ConfigModes.xml
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-140] Inserted 0 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-141] Inserted 0 OBUFs to IO ports without IO buffers.
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_axi_gpio_0_0/mcu_axi_gpio_0_0_board.xdc] for cell 'mcu_i/axi_gpio_0/U0'
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_axi_gpio_0_0/mcu_axi_gpio_0_0_board.xdc] for cell 'mcu_i/axi_gpio_0/U0'
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_axi_gpio_0_0/mcu_axi_gpio_0_0.xdc] for cell 'mcu_i/axi_gpio_0/U0'
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_axi_gpio_0_0/mcu_axi_gpio_0_0.xdc] for cell 'mcu_i/axi_gpio_0/U0'
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_axi_iic_0_0/mcu_axi_iic_0_0_board.xdc] for cell 'mcu_i/axi_iic_0'
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_axi_iic_0_0/mcu_axi_iic_0_0_board.xdc] for cell 'mcu_i/axi_iic_0'
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_axi_timer_0_0/mcu_axi_timer_0_0.xdc] for cell 'mcu_i/axi_timer_0'
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_axi_timer_0_0/mcu_axi_timer_0_0.xdc] for cell 'mcu_i/axi_timer_0'
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_axi_uartlite_0_0/mcu_axi_uartlite_0_0_board.xdc] for cell 'mcu_i/axi_uartlite_0/U0'
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_axi_uartlite_0_0/mcu_axi_uartlite_0_0_board.xdc] for cell 'mcu_i/axi_uartlite_0/U0'
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_axi_uartlite_0_0/mcu_axi_uartlite_0_0.xdc] for cell 'mcu_i/axi_uartlite_0/U0'
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_axi_uartlite_0_0/mcu_axi_uartlite_0_0.xdc] for cell 'mcu_i/axi_uartlite_0/U0'
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_clk_wiz_1_0/mcu_clk_wiz_1_0_board.xdc] for cell 'mcu_i/clk_wiz_1/U0'
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_clk_wiz_1_0/mcu_clk_wiz_1_0_board.xdc] for cell 'mcu_i/clk_wiz_1/U0'
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_clk_wiz_1_0/mcu_clk_wiz_1_0.xdc] for cell 'mcu_i/clk_wiz_1/U0'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_clk_wiz_1_0/mcu_clk_wiz_1_0.xdc:56]
+INFO: [Timing 38-2] Deriving generated clocks [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_clk_wiz_1_0/mcu_clk_wiz_1_0.xdc:56]
+get_clocks: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 6708.613 ; gain = 501.750 ; free physical = 2104 ; free virtual = 13384
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_clk_wiz_1_0/mcu_clk_wiz_1_0.xdc] for cell 'mcu_i/clk_wiz_1/U0'
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_mdm_1_0/mcu_mdm_1_0.xdc] for cell 'mcu_i/mcu_core_system/mdm_1/U0'
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_mdm_1_0/mcu_mdm_1_0.xdc] for cell 'mcu_i/mcu_core_system/mdm_1/U0'
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_microblaze_0_0/mcu_microblaze_0_0.xdc] for cell 'mcu_i/mcu_core_system/microblaze_0/U0'
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_microblaze_0_0/mcu_microblaze_0_0.xdc] for cell 'mcu_i/mcu_core_system/microblaze_0/U0'
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_microblaze_0_axi_intc_0/mcu_microblaze_0_axi_intc_0.xdc] for cell 'mcu_i/mcu_core_system/microblaze_0_axi_intc/U0'
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_microblaze_0_axi_intc_0/mcu_microblaze_0_axi_intc_0.xdc] for cell 'mcu_i/mcu_core_system/microblaze_0_axi_intc/U0'
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_dlmb_v10_0/mcu_dlmb_v10_0.xdc] for cell 'mcu_i/mcu_core_system/microblaze_0_local_memory/dlmb_v10/U0'
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_dlmb_v10_0/mcu_dlmb_v10_0.xdc] for cell 'mcu_i/mcu_core_system/microblaze_0_local_memory/dlmb_v10/U0'
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_ilmb_v10_0/mcu_ilmb_v10_0.xdc] for cell 'mcu_i/mcu_core_system/microblaze_0_local_memory/ilmb_v10/U0'
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_ilmb_v10_0/mcu_ilmb_v10_0.xdc] for cell 'mcu_i/mcu_core_system/microblaze_0_local_memory/ilmb_v10/U0'
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_rst_clk_wiz_1_100M_0/mcu_rst_clk_wiz_1_100M_0_board.xdc] for cell 'mcu_i/mcu_core_system/rst_clk_wiz_1_100M'
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_rst_clk_wiz_1_100M_0/mcu_rst_clk_wiz_1_100M_0_board.xdc] for cell 'mcu_i/mcu_core_system/rst_clk_wiz_1_100M'
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_rst_clk_wiz_1_100M_0/mcu_rst_clk_wiz_1_100M_0.xdc] for cell 'mcu_i/mcu_core_system/rst_clk_wiz_1_100M'
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_rst_clk_wiz_1_100M_0/mcu_rst_clk_wiz_1_100M_0.xdc] for cell 'mcu_i/mcu_core_system/rst_clk_wiz_1_100M'
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/constr/config.xdc]
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/constr/config.xdc]
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/constr/pinout.xdc]
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/constr/pinout.xdc]
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/constr/pinout_prohibit.xdc]
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/constr/pinout_prohibit.xdc]
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/constr/chipscope.xdc]
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/constr/chipscope.xdc]
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_microblaze_0_axi_intc_0/mcu_microblaze_0_axi_intc_0_clocks.xdc] for cell 'mcu_i/mcu_core_system/microblaze_0_axi_intc/U0'
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_microblaze_0_axi_intc_0/mcu_microblaze_0_axi_intc_0_clocks.xdc] for cell 'mcu_i/mcu_core_system/microblaze_0_axi_intc/U0'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Generating merged BMM file for the design top 'top_level'...
+INFO: [Memdata 28-144] Successfully populated the BRAM INIT strings from the following elf files: /home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/ipshared/xilinx.com/microblaze_v9_4/e11bcbd5/data/mb_bootloop_le.elf 
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 132 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 4 instances
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 80 instances
+  RAM16X1D => RAM32X1D (RAMD32, RAMD32): 32 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 16 instances
+
+open_run: Time (s): cpu = 00:00:29 ; elapsed = 00:00:23 . Memory (MB): peak = 6861.273 ; gain = 891.641 ; free physical = 1974 ; free virtual = 13254
+set_property mark_debug true [get_nets [list iic_rtl_sda_i]]
+set_property mark_debug true [get_nets [list iic_rtl_scl_i]]
+set_property mark_debug true [get_nets [list user_led1_OBUF]]
+set_property mark_debug true [get_nets [list mcu_i/In2]]
+set_property mark_debug true [get_nets [list mcu_i/mcu_core_system/irq]]
+create_debug_core u_ila_0 ila
+set_property C_DATA_DEPTH 65536 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 2 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+set_property port_width 1 [get_debug_ports u_ila_0/clk]
+connect_debug_port u_ila_0/clk [get_nets [list mcu_i/clk_out1 ]]
+set_property port_width 1 [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list iic_rtl_scl_i ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list iic_rtl_sda_i ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list mcu_i/In2 ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list mcu_i/mcu_core_system/irq ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list user_led1_OBUF ]]
+save_constraints
+reset_run impl_1
+launch_runs impl_1 -to_step write_bitstream
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.02 . Memory (MB): peak = 6863.270 ; gain = 0.000 ; free physical = 1960 ; free virtual = 13226
+[Tue Feb 24 22:35:28 2015] Launched impl_1...
+Run output will be captured here: /home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.runs/impl_1/runme.log
+close_design
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 368 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2014.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Constraints 18-1079] Register dbg_hub/inst/UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v1_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_asreg_reg and dbg_hub/inst/UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v1_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_asreg_d1_reg are from the same synchronizer and have the ASYNC_REG property set, but could not be placed into the same slice due to constraints or mismatched control signals on the registers.
+WARNING: [Constraints 18-1079] Register dbg_hub/inst/UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v1_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_asreg_reg and dbg_hub/inst/UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v1_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_asreg_d1_reg are from the same synchronizer and have the ASYNC_REG property set, but could not be placed into the same slice due to constraints or mismatched control signals on the registers.
+WARNING: [Constraints 18-1079] Register dbg_hub/inst/UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v1_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_asreg_reg and dbg_hub/inst/UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v1_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_asreg_d1_reg are from the same synchronizer and have the ASYNC_REG property set, but could not be placed into the same slice due to constraints or mismatched control signals on the registers.
+WARNING: [Constraints 18-1079] Register dbg_hub/inst/UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v1_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_asreg_reg and dbg_hub/inst/UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v1_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_asreg_d1_reg are from the same synchronizer and have the ASYNC_REG property set, but could not be placed into the same slice due to constraints or mismatched control signals on the registers.
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/.Xil/Vivado-42900-ubuntu/dcp/top_level_board.xdc]
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/.Xil/Vivado-42900-ubuntu/dcp/top_level_board.xdc]
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/.Xil/Vivado-42900-ubuntu/dcp/top_level_early.xdc]
+INFO: [Timing 38-35] Done setting XDC timing constraints. [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_clk_wiz_1_0/mcu_clk_wiz_1_0.xdc:56]
+INFO: [Timing 38-2] Deriving generated clocks [/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/ip/mcu_clk_wiz_1_0/mcu_clk_wiz_1_0.xdc:56]
+get_clocks: Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 6863.270 ; gain = 0.000 ; free physical = 2026 ; free virtual = 13203
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/.Xil/Vivado-42900-ubuntu/dcp/top_level_early.xdc]
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/.Xil/Vivado-42900-ubuntu/dcp/top_level.xdc]
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/.Xil/Vivado-42900-ubuntu/dcp/top_level.xdc]
+Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/.Xil/Vivado-42900-ubuntu/dcp/top_level_late.xdc]
+Finished Parsing XDC File [/home/kjell/fpga_dev/fpga_mcu_main/proj/.Xil/Vivado-42900-ubuntu/dcp/top_level_late.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 6863.270 ; gain = 0.000 ; free physical = 2026 ; free virtual = 13203
+Restored from archive | CPU: 1.700000 secs | Memory: 7.873581 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 6863.270 ; gain = 0.000 ; free physical = 2026 ; free virtual = 13203
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Generating merged BMM file for the design top 'top_level'...
+INFO: [Memdata 28-144] Successfully populated the BRAM INIT strings from the following elf files: /home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/ipshared/xilinx.com/microblaze_v9_4/e11bcbd5/data/mb_bootloop_le.elf 
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 185 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 48 instances
+  IOBUF => IOBUF (IBUF, OBUFT): 4 instances
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 79 instances
+  RAM16X1D => RAM32X1D (RAMD32, RAMD32): 32 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 22 instances
+
+open_run: Time (s): cpu = 00:00:25 ; elapsed = 00:00:21 . Memory (MB): peak = 6899.055 ; gain = 35.785 ; free physical = 2005 ; free virtual = 13169
+close_design
+open_bd_design {/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/mcu.bd}
+Adding component instance block -- xilinx.com:ip:axi_gpio:2.0 - axi_gpio_0
+Adding component instance block -- xilinx.com:ip:axi_iic:2.0 - axi_iic_0
+Adding component instance block -- xilinx.com:ip:axi_timer:2.0 - axi_timer_0
+Adding component instance block -- xilinx.com:ip:axi_uartlite:2.0 - axi_uartlite_0
+Adding component instance block -- xilinx.com:ip:clk_wiz:5.1 - clk_wiz_1
+Adding component instance block -- xilinx.com:ip:xlconcat:2.1 - microblaze_0_xlconcat
+Adding component instance block -- xilinx.com:ip:c_counter_binary:12.0 - c_counter_binary_0
+Adding component instance block -- xilinx.com:ip:util_reduced_logic:2.0 - util_reduced_logic_0
+Adding component instance block -- xilinx.com:ip:xlslice:1.0 - xlslice_0
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:mdm:3.2 - mdm_1
+Adding component instance block -- xilinx.com:ip:microblaze:9.4 - microblaze_0
+Adding component instance block -- xilinx.com:ip:axi_intc:4.1 - microblaze_0_axi_intc
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_clk_wiz_1_100M
+Adding component instance block -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - dlmb_bram_if_cntlr
+Adding component instance block -- xilinx.com:ip:lmb_v10:3.0 - dlmb_v10
+Adding component instance block -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - ilmb_bram_if_cntlr
+Adding component instance block -- xilinx.com:ip:lmb_v10:3.0 - ilmb_v10
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.2 - lmb_bram
+Successfully read diagram <mcu> from BD file </home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/mcu.bd>
+open_bd_design: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 6903.223 ; gain = 0.000 ; free physical = 1983 ; free virtual = 13149
+close_bd_design [get_bd_designs mcu]
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2014.4
+  **** Build date : Nov 18 2014-16:45:43
+    ** Copyright 1986-1999, 2001-2014 Xilinx, Inc. All Rights Reserved.
+
+INFO: hw_server application started
+INFO: Use Ctrl-C to exit hw_server application
+
+
+open_hw_target [lindex [get_hw_targets -of_objects [get_hw_servers localhost]] 0]
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210249982297
+set_property PROGRAM.FILE {/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.runs/impl_1/top_level.bit} [lindex [get_hw_devices] 0]
+set_property PROBES.FILE {/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.runs/impl_1/debug_nets.ltx} [lindex [get_hw_devices] 0]
+current_hw_device [lindex [get_hw_devices] 0]
+refresh_hw_device [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-1434] Device xc7a200t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Chain 1 or 3.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
+2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
+WARNING: [Labtools 27-1974] Mismatch between the design programmed into the device xc7a200t_0 and the probes file /home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.runs/impl_1/debug_nets.ltx.
+The device design has 0 ILA core(s) and 0 VIO core(s). The probes file has 1 ILA core(s) and 0 VIO core(s).
+Resolution: 
+1. Reprogram device with the correct programming file and associated probes file OR
+2. Goto device properties and associate the correct probes file with the programming file already programmed in the device.
+set_property PROBES.FILE {/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.runs/impl_1/debug_nets.ltx} [lindex [get_hw_devices] 0]
+set_property PROGRAM.FILE {/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.runs/impl_1/top_level.bit} [lindex [get_hw_devices] 0]
+program_hw_devices [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-32] Done pin status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 6903.223 ; gain = 0.000 ; free physical = 1979 ; free virtual = 13146
+refresh_hw_device [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-2302] Device xc7a200t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+set_property TRIGGER_COMPARE_VALUE eq1'bX [get_hw_probes user_led1_OBUF -of_objects [get_hw_ilas hw_ila_1]]
+set_property TRIGGER_COMPARE_VALUE eq1'bF [get_hw_probes iic_rtl_sda_i -of_objects [get_hw_ilas hw_ila_1]]
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2015-Feb-24 22:43:48
+wait_on_hw_ila -timeout 0 hw_ila_1
+display_hw_ila_data [upload_hw_ila_data hw_ila_1]
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2015-Feb-24 22:44:10
+INFO: [Labtools 27-2213] The ILA core 'hw_ila_1' captured one window with '16384' samples.
+startgroup 
+set_property CONTROL.DATA_DEPTH 8192 [get_hw_ilas hw_ila_1]
+set_property CONTROL.WINDOW_COUNT 8 [get_hw_ilas hw_ila_1]
+endgroup
+set_property CONTROL.TRIGGER_POSITION 300 [get_hw_ilas hw_ila_1]
+set_property TRIGGER_COMPARE_VALUE eq1'bR [get_hw_probes mcu_i/In2 -of_objects [get_hw_ilas hw_ila_1]]
+set_property TRIGGER_COMPARE_VALUE eq1'bR [get_hw_probes mcu_i/mcu_core_system/irq -of_objects [get_hw_ilas hw_ila_1]]
+set_property CONTROL.TRIGGER_CONDITION OR [get_hw_ilas hw_ila_1]
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2015-Feb-24 22:45:28
+wait_on_hw_ila -timeout 0 hw_ila_1
+display_hw_ila_data [upload_hw_ila_data hw_ila_1]
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2015-Feb-24 22:45:47
+INFO: [Labtools 27-2213] The ILA core 'hw_ila_1' captured one window with '8192' samples.
+add_wave -into {hw_ila_data_1.wcfg} -radix bin [get_hw_probes {mcu_i/In2}]
+add_wave -into {hw_ila_data_1.wcfg} -radix bin [get_hw_probes {mcu_i/mcu_core_system/irq}]
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2015-Feb-24 22:56:37
+wait_on_hw_ila -timeout 0 hw_ila_1
+display_hw_ila_data [upload_hw_ila_data hw_ila_1]
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2015-Feb-24 22:57:22
+INFO: [Labtools 27-2213] The ILA core 'hw_ila_1' captured one window with '8192' samples.
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2015-Feb-24 22:57:49
+wait_on_hw_ila -timeout 0 hw_ila_1
+display_hw_ila_data [upload_hw_ila_data hw_ila_1]
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2015-Feb-24 22:58:07
+INFO: [Labtools 27-2213] The ILA core 'hw_ila_1' captured one window with '8192' samples.
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2015-Feb-24 23:24:56
+wait_on_hw_ila -timeout 0 hw_ila_1
+display_hw_ila_data [upload_hw_ila_data hw_ila_1]
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2015-Feb-24 23:25:16
+INFO: [Labtools 27-2213] The ILA core 'hw_ila_1' captured one window with '8192' samples.
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2015-Feb-24 23:50:15
+wait_on_hw_ila -timeout 0 hw_ila_1
+display_hw_ila_data [upload_hw_ila_data hw_ila_1]
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2015-Feb-24 23:50:27
+INFO: [Labtools 27-2213] The ILA core 'hw_ila_1' captured one window with '8192' samples.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Core access failed. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+set_property PROBES.FILE {/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.runs/impl_1/debug_nets.ltx} [lindex [get_hw_devices] 0]
+set_property PROGRAM.FILE {/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.runs/impl_1/top_level.bit} [lindex [get_hw_devices] 0]
+program_hw_devices [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-32] Done pin status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 6903.223 ; gain = 0.000 ; free physical = 1902 ; free virtual = 13074
+refresh_hw_device [lindex [get_hw_devices] 0]
+INFO: [Labtools 27-2302] Device xc7a200t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2015-Feb-24 23:54:20
+wait_on_hw_ila -timeout 0 hw_ila_1
+display_hw_ila_data [upload_hw_ila_data hw_ila_1]
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2015-Feb-24 23:54:56
+INFO: [Labtools 27-2213] The ILA core 'hw_ila_1' captured one window with '8192' samples.
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2015-Feb-25 00:04:15
+wait_on_hw_ila -timeout 0 hw_ila_1
+display_hw_ila_data [upload_hw_ila_data hw_ila_1]
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2015-Feb-25 00:04:22
+INFO: [Labtools 27-2213] The ILA core 'hw_ila_1' captured one window with '8192' samples.
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2015-Feb-25 00:06:02
+wait_on_hw_ila -timeout 0 hw_ila_1
+display_hw_ila_data [upload_hw_ila_data hw_ila_1]
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2015-Feb-25 00:06:23
+INFO: [Labtools 27-2266] The ILA core 'hw_ila_1' captured '2' windows with '8192' samples each.
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2015-Feb-25 00:10:11
+wait_on_hw_ila -timeout 0 hw_ila_1
+display_hw_ila_data [upload_hw_ila_data hw_ila_1]
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2015-Feb-25 00:11:00
+INFO: [Labtools 27-2266] The ILA core 'hw_ila_1' captured '2' windows with '8192' samples each.
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2015-Feb-25 00:14:09
+wait_on_hw_ila -timeout 0 hw_ila_1
+display_hw_ila_data [upload_hw_ila_data hw_ila_1]
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2015-Feb-25 00:14:17
+INFO: [Labtools 27-2266] The ILA core 'hw_ila_1' captured '2' windows with '8192' samples each.
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2015-Feb-25 00:16:55
+wait_on_hw_ila -timeout 0 hw_ila_1
+upload_hw_ila_data hw_ila_1
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2015-Feb-25 00:17:43
+WARNING: [Labtools 27-157] hw_ila [hw_ila_1] stopped. No data to upload.
+run_hw_ila hw_ila_1
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2015-Feb-25 00:17:44
+wait_on_hw_ila -timeout 0 hw_ila_1
+display_hw_ila_data [upload_hw_ila_data hw_ila_1]
+INFO: [Labtools 27-1965] The ILA core 'hw_ila_1' trigger was stopped by user at 2015-Feb-25 00:18:08
+INFO: [Labtools 27-2266] The ILA core 'hw_ila_1' captured '2' windows with '8192' samples each.
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Feb 25 00:20:27 2015...

@@ -1,0 +1,45 @@
+{
+   guistr: "# # String gsaved with Nlview 6.4.10  2014-10-02 bk=1.3207 VDI=35 GEI=35 GUI=JA:1.8
+#  -string -flagsOSRD
+preplace port uart_rtl -pg 1 -y 460 -defaultsOSRD
+preplace port iic_rtl -pg 1 -y 580 -defaultsOSRD
+preplace port gpio_leds -pg 1 -y 310 -defaultsOSRD
+preplace port clk_in_50m -pg 1 -y 90 -defaultsOSRD
+preplace port nReset -pg 1 -y 110 -defaultsOSRD
+preplace port pulse_led -pg 1 -y 710 -defaultsOSRD
+preplace portBus iic_gpo -pg 1 -y 620 -defaultsOSRD
+preplace inst axi_iic_0 -pg 1 -lvl 4 -y 600 -defaultsOSRD
+preplace inst mcu_core_system -pg 1 -lvl 2 -y 130 -defaultsOSRD
+preplace inst microblaze_0_axi_periph -pg 1 -lvl 3 -y 240 -defaultsOSRD
+preplace inst microblaze_0_xlconcat -pg 1 -lvl 1 -y 450 -defaultsOSRD
+preplace inst axi_timer_0 -pg 1 -lvl 4 -y 150 -defaultsOSRD
+preplace inst axi_gpio_0 -pg 1 -lvl 4 -y 310 -defaultsOSRD
+preplace inst pulse_led_gen -pg 1 -lvl 4 -y 710 -defaultsOSRD
+preplace inst axi_uartlite_0 -pg 1 -lvl 4 -y 470 -defaultsOSRD
+preplace inst clk_wiz_1 -pg 1 -lvl 1 -y 100 -defaultsOSRD
+preplace netloc microblaze_0_axi_periph_M04_AXI 1 3 1 1030
+preplace netloc axi_uartlite_0_interrupt 1 0 5 140 380 NJ 490 NJ 490 NJ 390 1320
+preplace netloc axi_iic_0_iic2intc_irpt 1 0 5 140 520 NJ 520 NJ 520 NJ 400 1310
+preplace netloc microblaze_0_Clk 1 1 3 340 230 710 460 1050
+preplace netloc clk_in1_1 1 0 1 N
+preplace netloc microblaze_0_axi_periph_M03_AXI 1 3 1 1060
+preplace netloc ARESETN_1 1 2 1 700
+preplace netloc microblaze_0_axi_periph_M00_AXI 1 1 3 370 10 NJ 10 1020
+preplace netloc microblaze_0_axi_periph_M05_AXI 1 3 1 N
+preplace netloc microblaze_0_axi_dp 1 2 1 680
+preplace netloc resetn_1 1 0 2 130 40 360
+preplace netloc microblaze_0_axi_periph_M01_AXI 1 1 3 380 240 NJ 20 1010
+preplace netloc util_reduced_logic_0_Res 1 4 1 N
+preplace netloc rst_clk_wiz_1_100M_peripheral_aresetn 1 2 2 700 470 1020
+preplace netloc clk_wiz_1_locked 1 1 1 350
+preplace netloc axi_uartlite_0_UART 1 4 1 N
+preplace netloc axi_iic_0_IIC 1 4 1 N
+preplace netloc axi_gpio_0_GPIO 1 4 1 N
+preplace netloc axi_iic_0_gpo 1 4 1 N
+preplace netloc microblaze_0_axi_periph_M02_AXI 1 3 1 1030
+preplace netloc microblaze_0_xlconcat_dout 1 1 1 360
+preplace netloc axi_timer_0_interrupt 1 0 5 130 370 NJ 370 NJ 480 NJ 380 1320
+levelinfo -pg 1 110 240 530 860 1190 1340
+",
+}
+0

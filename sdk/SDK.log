@@ -1,0 +1,2 @@
+22:48:00 INFO  : Processing command line option -hwspec /home/kjell/fpga_dev/fpga_mcu_main/sdk/top_level.hdf.
+22:48:02 INFO  : Launching XSDB server: xsdb -s /opt/Xilinx/SDK/2014.4/scripts/xsdb/xsdb/xsdb-server.tcl 2450

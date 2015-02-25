@@ -1,0 +1,9 @@
+proj
+vivado*
+.Xil
+*~
+
+ip/*
+ip/*/*
+!ip/*/*.xci
+sdk/*

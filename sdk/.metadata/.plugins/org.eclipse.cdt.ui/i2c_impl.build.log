@@ -1,6 +1,26 @@
-00:17:37 **** Incremental Build of configuration Debug for project i2c_impl ****
+22:48:05 **** Auto Build of configuration Debug for project i2c_impl ****
 make all 
-make: Nothing to be done for `all'.
+Building file: ../src/i2c_impl.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/i2c_impl.o" -I../../standalone_bsp_0/mcu_core_system_microblaze_0/include -mlittle-endian -mcpu=v9.4 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/i2c_impl.d" -MT"src/i2c_impl.d" -o "src/i2c_impl.o" "../src/i2c_impl.c"
+Finished building: ../src/i2c_impl.c
+ 
+Building file: ../src/platform.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -I../../standalone_bsp_0/mcu_core_system_microblaze_0/include -mlittle-endian -mcpu=v9.4 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/platform.d" -MT"src/platform.d" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: i2c_impl.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/mcu_core_system_microblaze_0/lib -mlittle-endian -mcpu=v9.4 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "i2c_impl.elf"  ./src/i2c_impl.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: i2c_impl.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size i2c_impl.elf  |tee "i2c_impl.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  11028	    392	   2364	  13784	   35d8	i2c_impl.elf
+Finished building: i2c_impl.elf.size
+ 
 
-00:17:37 Build Finished (took 64ms)
+22:48:05 Build Finished (took 181ms)
 

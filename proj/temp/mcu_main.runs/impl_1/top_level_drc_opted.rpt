@@ -1,0 +1,32 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.4 (lin64) Build 1071353 Tue Nov 18 16:47:07 MST 2014
+| Date         : Sun Feb 22 18:25:53 2015
+| Host         : ubuntu running 64-bit Ubuntu 14.04.1 LTS
+| Command      : report_drc
+------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+           Max violations: <unlimited>
+         Violations found: 1
+
+2. REPORT DETAILS
+-----------------
+BUFC-1#1 Warning
+Input Buffer Connections  
+Input buffer iic_bar_iobuf/IBUF (in iic_bar_iobuf macro) has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+

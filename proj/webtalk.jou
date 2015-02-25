@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# Webtalk v2014.4 (64-bit)
+# SW Build 1071353 on Tue Nov 18 16:47:07 MST 2014
+# IP Build 1070531 on Tue Nov 18 01:10:18 MST 2014
+# Start of session at: Tue Feb 24 21:26:26 2015
+# Process ID: 43053
+# Log file: /home/kjell/fpga_dev/fpga_mcu_main/proj/webtalk.log
+# Journal file: /home/kjell/fpga_dev/fpga_mcu_main/proj/webtalk.jou
+#-----------------------------------------------------------
+source /home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.hw/webtalk/labtool_webtalk.tcl -notrace

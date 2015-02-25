@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2014.4 (64-bit)
+# SW Build 1071353 on Tue Nov 18 16:47:07 MST 2014
+# IP Build 1070531 on Tue Nov 18 01:10:18 MST 2014
+# Start of session at: Wed Feb 25 22:44:31 2015
+# Process ID: 54692
+# Log file: /home/kjell/fpga_dev/fpga_mcu_main/proj/vivado.log
+# Journal file: /home/kjell/fpga_dev/fpga_mcu_main/proj/vivado.jou
+#-----------------------------------------------------------
+start_gui 
+open_project /home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.xpr
+open_bd_design {/home/kjell/fpga_dev/fpga_mcu_main/proj/mcu_main/mcu_main.srcs/sources_1/bd/mcu/mcu.bd}
+write_hwdef -force  -file /home/kjell/fpga_dev/fpga_mcu_main/sdk/top_level.hdf
+launch_sdk -workspace /home/kjell/fpga_dev/fpga_mcu_main/sdk -hwspec /home/kjell/fpga_dev/fpga_mcu_main/sdk/top_level.hdf
+close_bd_design [get_bd_designs mcu]
