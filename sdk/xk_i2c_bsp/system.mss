@@ -1,5 +1,5 @@
 
- PARAMETER NAME = /home/kjell/fpga_dev/fpga_mcu_main/sdk/xk_i2c_bsp/system.mss
+ PARAMETER NAME = /home/kjell/fpga/fpga_mcu_main/sdk/xk_i2c_bsp/system.mss
 
  PARAMETER VERSION = 2.2.0
 

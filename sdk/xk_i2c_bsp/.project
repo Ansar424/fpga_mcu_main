@@ -3,7 +3,7 @@
 	<name>xk_i2c_bsp</name>
 	<comment>Created by SDK v2014.4</comment>
 	<projects>
-		<project>top_level_hw_platform_1</project>
+		<project>top_level_hw_platform_0</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
