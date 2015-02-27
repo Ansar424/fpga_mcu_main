@@ -10,7 +10,7 @@
 
 
 // I2C Addresses
-#define LSM_G_ADDR		0x6A
+#define LSM_G_ADR		0x6A
 #define LSM_XM_ADR		0x1E
 #define BAR_ADR			0x77
 

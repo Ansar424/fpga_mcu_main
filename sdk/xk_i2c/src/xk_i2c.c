@@ -35,20 +35,53 @@
 #include "xmk.h"
 #include "sys/init.h"
 #include <sys/decls.h>
+#include "sys/timer.h"
 #include "platform.h"
 
 #include "xintc.h"
 #include "xiic.h"
+#include "xgpio.h"
 
 #include "imu_sensors.h"
 #include <stdio.h>
 
+#define LED_CHANNEL 1
+
+XGpio Gpio;
 
 void *hello_world(void *arg)
 {
+	int status;
+
+	u32 led_val;
+
 	DBG_PRINT ("Debug\n\r");
 
     print("Hello World\r\n");
+
+	//Init GPIO
+	status = XGpio_Initialize(&Gpio, XPAR_AXI_GPIO_0_DEVICE_ID);
+	if (status != XST_SUCCESS)  {
+		print ("GPIO Failure");
+	}
+	XGpio_SetDataDirection(&Gpio, LED_CHANNEL, 0x0);
+
+	led_val = 0x1;
+
+    while (1==1) {
+    	XGpio_DiscreteWrite(&Gpio, LED_CHANNEL, led_val);
+
+    	if (led_val == 0x1<<3){
+    		led_val = 0x1;
+    	} else {
+    		led_val = led_val << 1;
+    	}
+
+    	sleep(200);
+
+
+    }
+
 }
 
 int main()
@@ -58,9 +91,8 @@ int main()
     /* Initialize xilkernel */
     xilkernel_init();
 
-    /* add a thread to be launched once xilkernel starts */
+    // Add static threads
     xmk_add_static_thread(hello_world, 0);
-
     imu_sensors_init();
 
     /* start xilkernel - does not return control */

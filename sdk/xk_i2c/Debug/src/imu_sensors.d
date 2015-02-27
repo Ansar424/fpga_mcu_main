@@ -28,6 +28,7 @@ src/imu_sensors.o src/imu_sensors.d: ../src/imu_sensors.c \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xil_printf.h \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xiic.h \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xiic_l.h \
+ ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xiic_l.h \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/decls.h \
  ../src/imu_sensors.h
 
@@ -88,6 +89,8 @@ src/imu_sensors.o src/imu_sensors.d: ../src/imu_sensors.c \
 ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xil_printf.h:
 
 ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xiic.h:
+
+../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xiic_l.h:
 
 ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xiic_l.h:
 

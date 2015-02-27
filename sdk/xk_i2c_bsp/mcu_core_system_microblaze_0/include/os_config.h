@@ -87,4 +87,14 @@
 
 #define MAX_READYQ 10
 
+#define CONFIG_SEMA true
+
+#define MAX_SEM 10
+
+#define MAX_SEM_WAITQ 10
+
+#define CONFIG_TIME true
+
+#define MAX_TMRS 10
+
 #endif

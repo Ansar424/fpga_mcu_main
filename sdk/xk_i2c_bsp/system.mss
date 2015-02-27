@@ -8,6 +8,10 @@ BEGIN OS
  PARAMETER OS_NAME = xilkernel
  PARAMETER OS_VER = 6.1
  PARAMETER PROC_INSTANCE = mcu_core_system_microblaze_0
+ PARAMETER config_debug_support = true
+ PARAMETER config_sema = true
+ PARAMETER config_time = true
+ PARAMETER enhanced_features = true
  PARAMETER stdin = mcu_core_system_mdm_1
  PARAMETER stdout = mcu_core_system_mdm_1
  PARAMETER sysintc_spec = mcu_core_system_microblaze_0_axi_intc

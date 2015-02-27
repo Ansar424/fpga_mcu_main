@@ -10,6 +10,7 @@
 #include <sys/intr.h>
 #include "platform.h"
 #include "xiic.h"
+#include "xiic_l.h"
 #include <sys/decls.h>
 
 #include "imu_sensors.h"
@@ -19,6 +20,7 @@ XIic Iic;
 
 void* imu_sensors_th(void *arg);
 int imu_sensors_i2c(void);
+int imu_sensor_wait(int timeout);
 
 
 int imu_sensors_init(void) {
@@ -47,17 +49,25 @@ void* imu_sensors_th(void *arg) {
 	txbuf[0] = 0x0f;
 	XIic_SetAddress(&Iic, XII_ADDR_TO_SEND_TYPE, LSM_XM_ADR);
 
-	status = XIic_DynMasterSend(&Iic, txbuf, 1);
+	imu_sensor_wait(0);
+	XIic_DynSend(Iic.BaseAddress, Iic.AddrOfSlave, txbuf, 1, XIIC_STOP);
+	XIic_DynRecv(Iic.BaseAddress, Iic.AddrOfSlave, rxbuf, 1);
 
-	while (XIic_IsIicBusy(&Iic));
+	if (rxbuf[0] != 0x49) {
+		print ("LSM9DS0 chip does not repsond to WhoAmI message on XM interface\n\r");
+	}
 
-	status = XIic_DynMasterRecv(&Iic, rxbuf, 1);
+	rxbuf[0] = 0;
 
-	while (XIic_IsIicBusy(&Iic));
+	XIic_SetAddress(&Iic, XII_ADDR_TO_SEND_TYPE, LSM_G_ADR);
 
-	for (i=0; i<1000000;i++);
+	imu_sensor_wait(0);
+	XIic_DynSend(Iic.BaseAddress, Iic.AddrOfSlave, txbuf, 1, XIIC_STOP);
+	XIic_DynRecv(Iic.BaseAddress, Iic.AddrOfSlave, rxbuf, 1);
 
-	print ("Juba");
+	if (rxbuf[0] != 0xD4) {
+		print ("LSM9DS0 chip does not repsond to WhoAmI message on G interface\n\r");
+	}
 
 	return 0;
 }
@@ -75,9 +85,6 @@ int imu_sensors_i2c(void) {
 
 	status = XIic_DynamicInitialize(&Iic);
 
-	// Connect I2c to the Intc system
-	//XIic_SetRecvHandler(&Iic, &Iic, &XIic_RecvHandler);
-	//XIic_SetSendHandler(&Iic, &Iic, &XIic_SendHandler);
 
 	status = register_int_handler (XPAR_INTC_0_IIC_0_VEC_ID ,
 								   (XInterruptHandler)XIic_InterruptHandler,
@@ -86,10 +93,23 @@ int imu_sensors_i2c(void) {
 		print ("Int handler connect Failure");
 	}
 
-
+	enable_interrupt(XPAR_INTC_0_IIC_0_VEC_ID);
 
  	XIic_SetGpOutput(&Iic, GPO_SETTING);
- 	XIic_Start(&Iic);
 
 	return 0;
+}
+
+int imu_sensor_wait(int timeout) {
+	int time_start;
+	int time_stop;
+
+	time_start = xget_clock_ticks();
+
+	sleep (1000);
+
+	time_stop = xget_clock_ticks();
+
+
+	while (XIic_IsIicBusy(&Iic));
 }
