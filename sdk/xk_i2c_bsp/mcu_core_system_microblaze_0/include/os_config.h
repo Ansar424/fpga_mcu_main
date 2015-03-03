@@ -49,6 +49,8 @@
 
 #define CONFIG_BASE_VECTORS 0x00000000
 
+#define CONFIG_YIELD true
+
 #define CONFIG_PTHREAD_SUPPORT true
 
 #define MAX_PTHREADS 10
@@ -59,11 +61,17 @@
 
 #define N_INIT_SELF_PTHREADS 0
 
+#define CONFIG_PTHREAD_MUTEX true
+
+#define MAX_PTHREAD_MUTEX 10
+
+#define MAX_PTHREAD_MUTEX_WAITQ 10
+
 #define CONFIG_TIMER_PIT true
 
 #define SYSTMR_BASEADDR 0x41C00000
 
-#define SYSTMR_INTERVAL 1000000
+#define SYSTMR_INTERVAL 2000000
 
 #define SYSTMR_CLK_FREQ 100000000
 
@@ -79,19 +87,13 @@
 
 #define CONFIG_SCHED true
 
-#define SCHED_TYPE SCHED_RR
+#define SCHED_TYPE SCHED_PRIO
 
 #define N_PRIO 32
 
-#define CONFIG_RRSCHED true
+#define CONFIG_PRIOSCHED true
 
 #define MAX_READYQ 10
-
-#define CONFIG_SEMA true
-
-#define MAX_SEM 10
-
-#define MAX_SEM_WAITQ 10
 
 #define CONFIG_TIME true
 

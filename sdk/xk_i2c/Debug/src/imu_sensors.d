@@ -1,8 +1,7 @@
 src/imu_sensors.o src/imu_sensors.d: ../src/imu_sensors.c \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xmk.h \
- ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/init.h \
- ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/config/config_cparam.h \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/os_config.h \
+ ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/process.h \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/config/config_param.h \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/ksched.h \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/ktypes.h \
@@ -12,10 +11,14 @@ src/imu_sensors.o src/imu_sensors.d: ../src/imu_sensors.c \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/msg.h \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/ipc.h \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/shm.h \
+ ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/config/config_cparam.h \
+ ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/queue.h \
+ ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/stats.h \
+ ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/kpthread.h \
+ ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/init.h \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/mpu.h \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/timer.h \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/intr.h \
- ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/queue.h \
  ../src/platform.h ../src/platform_config.h \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xintc.h \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xil_types.h \
@@ -35,11 +38,9 @@ src/imu_sensors.o src/imu_sensors.d: ../src/imu_sensors.c \
 
 ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xmk.h:
 
-../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/init.h:
-
-../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/config/config_cparam.h:
-
 ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/os_config.h:
+
+../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/process.h:
 
 ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/config/config_param.h:
 
@@ -59,13 +60,21 @@ src/imu_sensors.o src/imu_sensors.d: ../src/imu_sensors.c \
 
 ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/shm.h:
 
+../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/config/config_cparam.h:
+
+../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/queue.h:
+
+../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/stats.h:
+
+../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/kpthread.h:
+
+../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/init.h:
+
 ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/mpu.h:
 
 ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/timer.h:
 
 ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/intr.h:
-
-../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/sys/queue.h:
 
 ../src/platform.h:
 

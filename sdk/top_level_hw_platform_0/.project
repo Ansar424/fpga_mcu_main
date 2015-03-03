@@ -64,5 +64,59 @@
 				<arguments>1.0-name-matches-false-false-*.mmi</arguments>
 			</matcher>
 		</filter>
+		<filter>
+			<id>1425406412804</id>
+			<name></name>
+			<type>6</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-*.xml</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1425406412811</id>
+			<name></name>
+			<type>6</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-*.svd</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1425406412815</id>
+			<name></name>
+			<type>6</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-*.hwh</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1425406412819</id>
+			<name></name>
+			<type>6</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-*.bit</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1425406412822</id>
+			<name></name>
+			<type>6</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-*.bmm</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1425406412825</id>
+			<name></name>
+			<type>6</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-*.mmi</arguments>
+			</matcher>
+		</filter>
 	</filteredResources>
 </projectDescription>

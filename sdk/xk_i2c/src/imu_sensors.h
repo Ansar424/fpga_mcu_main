@@ -26,6 +26,96 @@
 #define GPO_SETTING		LSM_G_CS|LSM_XM_CS|BAR_PS
 
 
+// LSM9DS0 Gyro commands
+#define C_LSM_WHO_AM_I_G				0x0F
+#define C_LSM_CTRL_REG1_G				0x20
+#define C_LSM_CTRL_REG2_G				0x21
+#define C_LSM_CTRL_REG3_G				0x22
+#define C_LSM_CTRL_REG4_G				0x23
+#define C_LSM_CTRL_REG5_G				0x24
+#define C_LSM_REFERENCE_G				0x25
+#define C_LSM_STATUS_REG_G				0x27
+#define C_LSM_OUT_X_L_G					0x28
+#define C_LSM_OUT_X_H_G					0x29
+#define C_LSM_OUT_Y_L_G					0x2A
+#define C_LSM_OUT_Y_H_G					0x2B
+#define C_LSM_OUT_Z_L_G					0x2C
+#define C_LSM_OUT_Z_H_G					0x2D
+#define C_LSM_FIFO_CTRL_REG_G			0x2E
+#define C_LSM_FIFO_SRC_REG_G			0x2F
+#define C_LSM_INT1_CFG_G				0x30
+#define C_LSM_INT1_SRC_G				0x31
+#define C_LSM_INT1_TSH_XH_G				0x32
+#define C_LSM_INT1_TSH_XL_G				0x33
+#define C_LSM_INT1_TSH_YH_G				0x34
+#define C_LSM_INT1_TSH_YL_G				0x35
+#define C_LSM_INT1_TSH_ZH_G				0x36
+#define C_LSM_INT1_TSH_ZL_G				0x37
+#define C_LSM_INT1_DURATION_G			0x38
+
+// LSM9DS0 Acc and Mag commands
+#define C_LSM_OUT_TEMP_L_XM				0x05
+#define C_LSM_OUT_TEMP_H_XM				0x06
+#define C_LSM_STATUS_REG_M				0x07
+#define C_LSM_OUT_X_L_M					0x08
+#define C_LSM_OUT_X_H_M					0x09
+#define C_LSM_OUT_Y_L_M					0x0A
+#define C_LSM_OUT_Y_H_M					0x0B
+#define C_LSM_OUT_Z_L_M					0x0C
+#define C_LSM_OUT_Z_H_M					0x0D
+#define C_LSM_WHO_AM_I_XM				0x0F
+#define C_LSM_INT_CTRL_REG_M			0x12
+#define C_LSM_INT_SRC_REG_M				0x13
+#define C_LSM_INT_THS_L_M				0x14
+#define C_LSM_INT_THS_H_M				0x15
+#define C_LSM_OFFSET_X_L_M				0x16
+#define C_LSM_OFFSET_X_H_M				0x17
+#define C_LSM_OFFSET_Y_L_M				0x18
+#define C_LSM_OFFSET_Y_H_XM				0x19
+#define C_LSM_OFFSET_Z_L_XM				0x1A
+#define C_LSM_OFFSET_Z_H_XM				0x1B
+#define C_LSM_REFERENCE_X				0x1C
+#define C_LSM_REFERENCE_Y				0x1D
+#define C_LSM_REFERENCE_Z				0x1E
+#define C_LSM_CTRL_REG_0_XM				0x1F
+#define C_LSM_CTRL_REG_1_XM				0x20
+#define C_LSM_CTRL_REG_2_XM				0x21
+#define C_LSM_CTRL_REG_3_XM				0x22
+#define C_LSM_CTRL_REG_4_XM				0x23
+#define C_LSM_CTRL_REG_5_XM				0x24
+#define C_LSM_CTRL_REG_6_XM				0x25
+#define C_LSM_CTRL_REG_7_XM				0x26
+#define C_LSM_STATUS_REG_A				0x27
+#define C_LSM_OUT_X_L_A					0x28
+#define C_LSM_OUT_X_H_A					0x29
+#define C_LSM_OUT_Y_L_A					0x2A
+#define C_LSM_OUT_Y_H_A					0x2B
+#define C_LSM_OUT_Z_L_A					0x2C
+#define C_LSM_OUT_Z_H_A					0x2D
+#define C_LSM_FIFO_CTRL_REG				0x2E
+#define C_LSM_FIFO_SRC_REG				0x2F
+#define C_LSM_INT_GEN1_REG				0x30
+#define C_LSM_INT_GEN1_SRC				0x31
+#define C_LSM_INT_GEN1_THS				0x32
+#define C_LSM_INT_GEN1_DURATION			0x33
+#define C_LSM_INT_GEN2_REG				0x34
+#define C_LSM_INT_GEN2_SRC				0x35
+#define C_LSM_INT_GEN2_THS				0x36
+#define C_LSM_INT_GEN2_DURATION			0x37
+#define C_LSM_CLICK_SCF					0x38
+#define C_LSM_CLICK_SRC					0x39
+#define C_LSM_CLICK_THS					0x3A
+#define C_LSM_TIME_LIMIT				0x3B
+#define C_LSM_TIME_LATENCY				0x3C
+#define C_LSM_TIME_WINDOW				0x3D
+#define C_LSM_ACT_THS					0x3E
+#define C_LSM_ACT_DUR					0x3F
+
+
+// Misc defines
+#define TICK2MS			(SYSTMR_INTERVAL / SYSTMR_CLK_FREQ_KHZ)
+
+
 int imu_sensors_init(void);
 
 #endif /* IMU_SENSORS_H_ */

@@ -39,10 +39,6 @@
 #include "xiic.h"
 
 
-
-extern XIic Iic;
-
-
 void init_platform();
 void cleanup_platform();
 

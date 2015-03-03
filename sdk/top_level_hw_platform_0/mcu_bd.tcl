@@ -385,6 +385,7 @@ proc create_root_design { parentCell } {
 
   # Create instance: axi_timer_0, and set properties
   set axi_timer_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_timer:2.0 axi_timer_0 ]
+  set_property -dict [ list CONFIG.enable_timer2 {1} CONFIG.mode_64bit {1}  ] $axi_timer_0
 
   # Create instance: axi_uartlite_0, and set properties
   set axi_uartlite_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_uartlite:2.0 axi_uartlite_0 ]
