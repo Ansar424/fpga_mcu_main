@@ -43,7 +43,6 @@
 #include "xgpio.h"
 
 #include "imu_sensors.h"
-#include <stdio.h>
 
 #define LED_CHANNEL 1
 
@@ -77,7 +76,7 @@ void *hello_world(void *arg)
     		led_val = led_val << 1;
     	}
 
-    	sleep(200);
+    	sys_sleep(200);
 
 
     }

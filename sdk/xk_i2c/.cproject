@@ -34,9 +34,7 @@
 									<listOptionValue builtIn="false" value="../../xk_i2c_bsp/mcu_core_system_microblaze_0/include"/>
 								</option>
 								<option id="xilinx.gnu.compiler.inferred.swplatform.flags.352343123" name="Software Platform Inferred Flags" superClass="xilinx.gnu.compiler.inferred.swplatform.flags" value="-D __XMK__" valueType="string"/>
-								<option id="xilinx.gnu.compiler.symbols.defined.707899503" superClass="xilinx.gnu.compiler.symbols.defined" valueType="definedSymbols">
-									<listOptionValue builtIn="false" value="VERBOSE"/>
-								</option>
+								<option id="xilinx.gnu.compiler.symbols.defined.707899503" name="Defined symbols (-D)" superClass="xilinx.gnu.compiler.symbols.defined" valueType="definedSymbols"/>
 								<inputType id="xilinx.gnu.compiler.input.665742765" name="C source files" superClass="xilinx.gnu.compiler.input"/>
 							</tool>
 							<tool id="xilinx.gnu.mb.cxx.toolchain.compiler.debug.1386562529" name="MicroBlaze g++ compiler" superClass="xilinx.gnu.mb.cxx.toolchain.compiler.debug">
