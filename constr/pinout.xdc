@@ -102,17 +102,17 @@ set_property IOSTANDARD LVCMOS33 [get_ports n_usb_rst]
 ######################################################################################
 ## SD Card
 
-## SD_clk :
-#set_property PACKAGE_PIN A19 [get_ports sd_clk]
-#set_property IOSTANDARD LVCMOS33 [get_ports sd_clk]
+# SD_clk  (SPI SCLK):
+set_property PACKAGE_PIN A19 [get_ports sd_clk]
+set_property IOSTANDARD LVCMOS33 [get_ports sd_clk]
 
-## SD_Cmd :
-#set_property PACKAGE_PIN C22 [get_ports sd_cmd]
-#set_property IOSTANDARD LVCMOS33 [get_ports sd_cmd]
+# SD_Cmd (SPI MOSI):
+set_property PACKAGE_PIN C22 [get_ports sd_cmd]
+set_property IOSTANDARD LVCMOS33 [get_ports sd_cmd]
 
-## SD_dat0 :
-#set_property PACKAGE_PIN B22 [get_ports sd_dat0]
-#set_property IOSTANDARD LVCMOS33 [get_ports sd_dat0]
+# SD_dat0 (SPI MISO):
+set_property PACKAGE_PIN B22 [get_ports sd_dat0]
+set_property IOSTANDARD LVCMOS33 [get_ports sd_dat0]
 
 ## SD_dat1 :
 #set_property PACKAGE_PIN A21 [get_ports sd_dat1]
@@ -122,9 +122,9 @@ set_property IOSTANDARD LVCMOS33 [get_ports n_usb_rst]
 #set_property PACKAGE_PIN E22 [get_ports sd_dat2]
 #set_property IOSTANDARD LVCMOS33 [get_ports sd_dat2]
 
-## SD_dat3 :
-#set_property PACKAGE_PIN D22 [get_ports sd_dat3]
-#set_property IOSTANDARD LVCMOS33 [get_ports sd_dat3]
+# SD_dat3 (SPI nCS):
+set_property PACKAGE_PIN D22 [get_ports sd_dat3]
+set_property IOSTANDARD LVCMOS33 [get_ports sd_dat3]
 
 ## n_SD_detect :
 #set_property PACKAGE_PIN A20 [get_ports n_sd_detect]
@@ -475,3 +475,4 @@ set_property IOSTANDARD LVCMOS33 [get_ports n_bar_cs]
 ## P13_1
 #set_property PACKAGE_PIN Y18 [get_ports P13_1]
 #set_property IOSTANDARD LVCMOS33 [get_ports P13_1]
+

@@ -67,17 +67,19 @@ entity top_level is
         bar_clk : inout std_logic;
         bar_sdi : inout std_logic;
         bar_ps : out std_logic;
-        n_bar_cs : out std_logic
-    
+        n_bar_cs : out std_logic;
+        
+        -- SD Card SPI interface
+        sd_clk : inout std_logic;   -- SPI Clk
+        sd_cmd : inout std_logic;   -- SPI MOSI
+        sd_dat0 : inout std_logic;  -- SPI MISO
+        sd_dat3 : inout  std_logic   -- SPI nCS
     );
 end top_level;
 
 architecture rtl of top_level is
   component mcu is
     port (
-        clk_in_50m : in STD_LOGIC;
-        nReset : in STD_LOGIC;
-        pulse_led : out STD_LOGIC;
         gpio_leds_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
         iic_rtl_scl_i : in STD_LOGIC;
         iic_rtl_scl_o : out STD_LOGIC;
@@ -87,7 +89,22 @@ architecture rtl of top_level is
         iic_rtl_sda_t : out STD_LOGIC;
         uart_rtl_rxd : in STD_LOGIC;
         uart_rtl_txd : out STD_LOGIC;
-        iic_gpo : out STD_LOGIC_VECTOR ( 7 downto 0 )
+        iic_gpo : out STD_LOGIC_VECTOR ( 7 downto 0 );
+        clk_in_50m : in STD_LOGIC;
+        nReset : in STD_LOGIC;
+        pulse_led : out STD_LOGIC;
+        spi_rtl_io0_i : in STD_LOGIC;
+        spi_rtl_io0_o : out STD_LOGIC;
+        spi_rtl_io0_t : out STD_LOGIC;
+        spi_rtl_io1_i : in STD_LOGIC;
+        spi_rtl_io1_o : out STD_LOGIC;
+        spi_rtl_io1_t : out STD_LOGIC;
+        spi_rtl_sck_i : in STD_LOGIC;
+        spi_rtl_sck_o : out STD_LOGIC;
+        spi_rtl_sck_t : out STD_LOGIC;
+        spi_rtl_ss_i : in STD_LOGIC_VECTOR ( 0 to 0 );
+        spi_rtl_ss_o : out STD_LOGIC_VECTOR ( 0 to 0 );
+        spi_rtl_ss_t : out STD_LOGIC
     );
   end component mcu;
   
@@ -102,6 +119,19 @@ architecture rtl of top_level is
   signal i2c_sda_bar : std_logic;
   signal i2c_sda_lsm : std_logic;
   signal iic_gpo_i : std_logic_vector (7 downto 0);
+  
+  signal spi_rtl_io0_i : STD_LOGIC;
+  signal spi_rtl_io0_o : STD_LOGIC;
+  signal spi_rtl_io0_t : STD_LOGIC;
+  signal spi_rtl_io1_i : STD_LOGIC;
+  signal spi_rtl_io1_o : STD_LOGIC;
+  signal spi_rtl_io1_t : STD_LOGIC;
+  signal spi_rtl_sck_i : STD_LOGIC;
+  signal spi_rtl_sck_o : STD_LOGIC;
+  signal spi_rtl_sck_t : STD_LOGIC;
+  signal spi_rtl_ss_i_0 : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal spi_rtl_ss_o_0 : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal spi_rtl_ss_t : STD_LOGIC;  
   
   
 begin
@@ -132,7 +162,20 @@ begin
           iic_gpo => iic_gpo_i,
 
           uart_rtl_rxd => usb_txd,
-          uart_rtl_txd => usb_rxd
+          uart_rtl_txd => usb_rxd,
+          
+          spi_rtl_io0_i => spi_rtl_io0_i,
+          spi_rtl_io0_o => spi_rtl_io0_o,
+          spi_rtl_io0_t => spi_rtl_io0_t,
+          spi_rtl_io1_i => spi_rtl_io1_i,
+          spi_rtl_io1_o => spi_rtl_io1_o,
+          spi_rtl_io1_t => spi_rtl_io1_t,
+          spi_rtl_sck_i => spi_rtl_sck_i,
+          spi_rtl_sck_o => spi_rtl_sck_o,
+          spi_rtl_sck_t => spi_rtl_sck_t,
+          spi_rtl_ss_i => spi_rtl_ss_i_0,
+          spi_rtl_ss_o => spi_rtl_ss_o_0,
+          spi_rtl_ss_t => spi_rtl_ss_t          
         );
     
     
@@ -185,6 +228,36 @@ begin
           T => i2c_scl_t
         );
 
+
+    -- SD card SPI connections
+    spi_rtl_io0_iobuf: component IOBUF
+        port map (
+          I => spi_rtl_io0_o,
+          IO => sd_cmd,
+          O => spi_rtl_io0_i,
+          T => spi_rtl_io0_t
+        );
+    spi_rtl_io1_iobuf: component IOBUF
+        port map (
+          I => spi_rtl_io1_o,
+          IO => sd_dat0,
+          O => spi_rtl_io1_i,
+          T => spi_rtl_io1_t
+        );
+    spi_rtl_sck_iobuf: component IOBUF
+        port map (
+          I => spi_rtl_sck_o,
+          IO => sd_clk,
+          O => spi_rtl_sck_i,
+          T => spi_rtl_sck_t
+        );
+    spi_rtl_ss_iobuf_0: component IOBUF
+        port map (
+          I => spi_rtl_ss_o_0(0),
+          IO => sd_dat3,
+          O => spi_rtl_ss_i_0(0),
+          T => spi_rtl_ss_t
+        );    
 
 
 end rtl;

@@ -30,6 +30,9 @@ src/xk_i2c.o src/xk_i2c.d: ../src/xk_i2c.c \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xiic_l.h \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xgpio.h \
  ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xgpio_l.h \
+ ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xspi.h \
+ ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xspi_l.h \
+ ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xspi_l.h \
  ../src/imu_sensors.h
 
 ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xmk.h:
@@ -95,5 +98,11 @@ src/xk_i2c.o src/xk_i2c.d: ../src/xk_i2c.c \
 ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xgpio.h:
 
 ../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xgpio_l.h:
+
+../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xspi.h:
+
+../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xspi_l.h:
+
+../../xk_i2c_bsp/mcu_core_system_microblaze_0/include/xspi_l.h:
 
 ../src/imu_sensors.h:

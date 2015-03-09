@@ -41,12 +41,16 @@
 #include "xintc.h"
 #include "xiic.h"
 #include "xgpio.h"
+#include "xspi.h"
+#include "xspi_l.h"
+
 
 #include "imu_sensors.h"
 
 #define LED_CHANNEL 1
 
 XGpio Gpio;
+XSpi Spi;
 
 void *hello_world(void *arg)
 {
@@ -83,6 +87,74 @@ void *hello_world(void *arg)
 
 }
 
+void *spi_test(void *arg)
+{
+	int status;
+	u32 ControlReg;
+	u8 spibuf[32];
+
+    print("Start SPI test\r\n");
+
+	status = XSpi_Initialize (&Spi, XPAR_SPI_0_DEVICE_ID);
+	if (status != XST_SUCCESS)  {
+		print ("SPI Init failure");
+	}
+
+	XSpi_Reset(&Spi);
+
+	ControlReg = XSpi_GetControlReg(&Spi);
+	ControlReg |= XSP_CR_MASTER_MODE_MASK;
+	XSpi_SetControlReg(&Spi, ControlReg);
+
+	status = XSpi_SetSlaveSelect(&Spi, 1);
+	if (status != XST_SUCCESS)  {
+		print ("SPI Set Slave Select failure");
+	}
+
+	status = XSpi_Start(&Spi);
+	if (status != XST_SUCCESS)  {
+		print ("SPI Start failure");
+	}
+	XSpi_IntrGlobalDisable(&Spi);
+
+	//XSpi_Enable(&Spi);
+
+	spibuf[0] = 0xFF;
+	spibuf[1] = 0xFF;
+	spibuf[2] = 0xFF;
+	spibuf[3] = 0xFF;
+	spibuf[4] = 0xFF;
+	spibuf[5] = 0xFF;
+	spibuf[6] = 0xFF;
+	spibuf[7] = 0xFF;
+	spibuf[8] = 0xFF;
+	spibuf[9] = 0xFF;
+
+	status = XSpi_Transfer (&Spi, spibuf, spibuf, 10);
+
+	spibuf[0] = 0x40;
+	spibuf[1] = 0x00;
+	spibuf[2] = 0x00;
+	spibuf[3] = 0x00;
+	spibuf[4] = 0x00;
+	spibuf[5] = 0x95;
+
+	status = XSpi_Transfer (&Spi, spibuf, spibuf, 6);
+
+	spibuf[0] = 0xFF;
+	spibuf[1] = 0xFF;
+	spibuf[2] = 0xFF;
+	spibuf[3] = 0xFF;
+	spibuf[4] = 0xFF;
+	spibuf[5] = 0xFF;
+	spibuf[6] = 0xFF;
+	spibuf[7] = 0xFF;
+
+	status = XSpi_Transfer (&Spi, spibuf, spibuf, 8);
+
+}
+
+
 int main()
 {
     init_platform();
@@ -92,6 +164,7 @@ int main()
 
     // Add static threads
     xmk_add_static_thread(hello_world, 0);
+    xmk_add_static_thread(spi_test, 0);
     imu_sensors_init();
 
     /* start xilkernel - does not return control */

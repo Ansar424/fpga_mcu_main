@@ -77,4 +77,10 @@ BEGIN DRIVER
  PARAMETER HW_INSTANCE = mcu_core_system_microblaze_0_local_memory_ilmb_bram_if_cntlr
 END
 
+BEGIN DRIVER
+ PARAMETER DRIVER_NAME = spi
+ PARAMETER DRIVER_VER = 4.1
+ PARAMETER HW_INSTANCE = axi_quad_spi_0
+END
+
 
